@@ -2,8 +2,9 @@
 if (window.parent !== window) {
   const parents = new Set(['https://invisiblepalmistry.com', 'https://www.invisiblepalmistry.com']);
   const referrer = (() => { try { return new URL(document.referrer).origin; } catch { return ''; } })();
-  if (parents.has(referrer)) {
-    const report = () => window.parent.postMessage({ type: 'portfolio-location', path: location.pathname + location.search + location.hash, title: document.title }, referrer);
+  const host = parents.has(location.ancestorOrigins?.[0]) ? location.ancestorOrigins[0] : (parents.has(referrer) ? referrer : 'https://invisiblepalmistry.com');
+  {
+    const report = () => window.parent.postMessage({ type: 'portfolio-location', path: location.pathname + location.search + location.hash, title: document.title }, host);
     window.addEventListener('pageshow', report);
     window.addEventListener('hashchange', report);
     report();
@@ -13,7 +14,7 @@ if (window.parent !== window) {
       const url = new URL(link.href, location.href);
       if (parents.has(url.origin) || (url.origin === location.origin && /^\/(?:index\.html)?$/.test(url.pathname))) {
         event.preventDefault();
-        window.parent.postMessage({ type: 'portfolio-exit', url: parents.has(url.origin) ? url.href : referrer + '/' }, referrer);
+        window.parent.postMessage({ type: 'portfolio-exit', url: parents.has(url.origin) ? url.href : host + '/' }, host);
       }
     });
   }
