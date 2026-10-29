@@ -1,0 +1,6 @@
+MediaPipe Tasks Vision 1.1.1
+Official npm distribution: https://registry.npmjs.org/@mediapipe/tasks-vision/-/tasks-vision-1.1.1.tgz
+Project: https://github.com/google-ai-edge/mediapipe
+License: Apache-2.0 (https://www.apache.org/licenses/LICENSE-2.0)
+Face and hand landmarker model files obtained from the official Google MediaPipe model distribution.
+The application processes camera and microphone inputs locally. No image/audio upload endpoint is implemented.

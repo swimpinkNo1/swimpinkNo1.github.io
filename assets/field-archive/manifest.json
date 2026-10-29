@@ -1,0 +1,1029 @@
+[
+  {
+    "id": "p01",
+    "src": "assets/field-archive/p01.jpg",
+    "original": "2.JPG",
+    "group": "discarded",
+    "title": "Collected cans and packaging",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      2,
+      3,
+      4
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": true
+  },
+  {
+    "id": "p02",
+    "src": "assets/field-archive/p02.jpg",
+    "original": "25469512628bc5381d90c109a2a4bd96.JPG",
+    "group": "nature",
+    "title": "Camels in a snow-covered landscape",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p03",
+    "src": "assets/field-archive/p03.jpg",
+    "original": "4f14d57639ec26a5d63b61fc04e280ef.JPG",
+    "group": "nature",
+    "title": "Cattle in a flowering pasture",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p04",
+    "src": "assets/field-archive/p04.jpg",
+    "original": "5.JPG",
+    "group": "installation",
+    "title": "Cans suspended from a tree",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p05",
+    "src": "assets/field-archive/p05.jpg",
+    "original": "7ac6df8125b97728e6014ad5724be026.JPG",
+    "group": "nature",
+    "title": "Snow-covered mountains and open ground",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p06",
+    "src": "assets/field-archive/p06.jpg",
+    "original": "IMG_0268.JPG",
+    "group": "nature",
+    "title": "Sheep resting in grass",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p07",
+    "src": "assets/field-archive/p07.jpg",
+    "original": "IMG_0823.jpg",
+    "group": "nature",
+    "title": "A river in winter",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p08",
+    "src": "assets/field-archive/p08.jpg",
+    "original": "IMG_1021.jpg",
+    "group": "discarded",
+    "title": "Discarded packaging in vegetation",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      2,
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p09",
+    "src": "assets/field-archive/p09.jpg",
+    "original": "IMG_1720.jpg",
+    "group": "nature",
+    "title": "Birds perched on bare branches",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p10",
+    "src": "assets/field-archive/p10.jpg",
+    "original": "IMG_1743.jpg",
+    "group": "discarded",
+    "title": "A can in the undergrowth",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      2,
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p11",
+    "src": "assets/field-archive/p11.jpg",
+    "original": "IMG_1745.jpg",
+    "group": "discarded",
+    "title": "An aluminium can among brambles",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      2,
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p12",
+    "src": "assets/field-archive/p12.jpg",
+    "original": "IMG_1751.jpg",
+    "group": "discarded",
+    "title": "A discarded glass bottle among ivy",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      2,
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p13",
+    "src": "assets/field-archive/p13.jpg",
+    "original": "IMG_1757.jpg",
+    "group": "discarded",
+    "title": "Litter among stones and plants",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      2,
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p14",
+    "src": "assets/field-archive/p14.jpg",
+    "original": "IMG_1790.jpg",
+    "group": "discarded",
+    "title": "An aluminium can on moss",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      2,
+      3,
+      4
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": true
+  },
+  {
+    "id": "p15",
+    "src": "assets/field-archive/p15.jpg",
+    "original": "IMG_1796.jpg",
+    "group": "discarded",
+    "title": "Discarded bottles scattered among ivy",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      2,
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p16",
+    "src": "assets/field-archive/p16.jpg",
+    "original": "IMG_1896.JPG",
+    "group": "discarded",
+    "title": "A bottle lodged in a tree",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      2,
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p17",
+    "src": "assets/field-archive/p17.jpg",
+    "original": "IMG_3482.jpg",
+    "group": "nature",
+    "title": "Grass above a quiet coastline",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      1,
+      5
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p18",
+    "src": "assets/field-archive/p18.jpg",
+    "original": "IMG_3552.jpg",
+    "group": "nature",
+    "title": "Rocky coastline and evening light",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      1,
+      5
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p19",
+    "src": "assets/field-archive/p19.jpg",
+    "original": "IMG_3653.JPG",
+    "group": "discarded",
+    "title": "An aluminium can lodged in a riverside tree",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      2,
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": true
+  },
+  {
+    "id": "p20",
+    "src": "assets/field-archive/p20.jpg",
+    "original": "IMG_3664.jpg",
+    "group": "recording",
+    "title": "Handheld recorder beside vegetation",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": true
+  },
+  {
+    "id": "p21",
+    "src": "assets/field-archive/p21.jpg",
+    "original": "IMG_3665.jpg",
+    "group": "recording",
+    "title": "Recording outdoors beside a path",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p22",
+    "src": "assets/field-archive/p22.jpg",
+    "original": "IMG_5352.JPG",
+    "group": "nature",
+    "title": "A herd at sunset",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p23",
+    "src": "assets/field-archive/p23.jpg",
+    "original": "IMG_5447.JPG",
+    "group": "discarded",
+    "title": "A discarded can floating in water",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      2,
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p24",
+    "src": "assets/field-archive/p24.jpg",
+    "original": "IMG_7208.JPG",
+    "group": "nature",
+    "title": "A small insect on a leaf",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      0,
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p25",
+    "src": "assets/field-archive/p25.jpg",
+    "original": "IMG_7522.JPG",
+    "group": "nature",
+    "title": "A frog among leaves and earth",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p26",
+    "src": "assets/field-archive/p26.jpg",
+    "original": "IMG_7525.JPG",
+    "group": "nature",
+    "title": "A frog beside a leaf",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p27",
+    "src": "assets/field-archive/p27.jpg",
+    "original": "IMG_7688.jpg",
+    "group": "nature",
+    "title": "Light through a wooded path",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      0,
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p28",
+    "src": "assets/field-archive/p28.jpg",
+    "original": "IMG_9235.jpg",
+    "group": "nature",
+    "title": "Flowers above the sea",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      1,
+      5
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p29",
+    "src": "assets/field-archive/p29.jpg",
+    "original": "IMG_9242.JPG",
+    "group": "nature",
+    "title": "Clear water beside coastal rocks",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      1,
+      5
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p30",
+    "src": "assets/field-archive/p30.jpg",
+    "original": "IMG_9757.jpg",
+    "group": "nature",
+    "title": "A stack of stones on a misty beach",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      5
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p31",
+    "src": "assets/field-archive/p31.jpg",
+    "original": "IMG_9878.jpg",
+    "group": "nature",
+    "title": "Looking into a tree canopy",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      0,
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p32",
+    "src": "assets/field-archive/p32.jpg",
+    "original": "PHOTO-2025-02-10-16-19-20.jpg",
+    "group": "installation",
+    "title": "Working with the tree-mounted can installation",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": true
+  },
+  {
+    "id": "p33",
+    "src": "assets/field-archive/p33.jpg",
+    "original": "Screenshot 2025-09-18 at 10.40.05.png",
+    "group": "process",
+    "title": "GeoImgr: extracting photograph locations",
+    "origin": "Original process screenshot supplied by the artist",
+    "stages": [
+      2,
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": true
+  },
+  {
+    "id": "p34",
+    "src": "assets/field-archive/p34.jpg",
+    "original": "Screenshot 2025-09-18 at 10.45.23.png",
+    "group": "process",
+    "title": "TwoTone: location data as musical material",
+    "origin": "Original process screenshot supplied by the artist",
+    "stages": [
+      2,
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": true
+  },
+  {
+    "id": "p35",
+    "src": "assets/field-archive/p35.jpg",
+    "original": "Screenshot 2025-09-18 at 11.02.23.png",
+    "group": "process",
+    "title": "p5.js: data-driven sound and visualisation",
+    "origin": "Original process screenshot supplied by the artist",
+    "stages": [
+      2,
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": true
+  },
+  {
+    "id": "p36",
+    "src": "assets/field-archive/p36.jpg",
+    "original": "andrea-ferrario-7SP-NotqFrE-unsplash.jpg",
+    "group": "weather",
+    "title": "Lightning above a built skyline",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p37",
+    "src": "assets/field-archive/p37.jpg",
+    "original": "antoine-giret-7_TSzqJms4w-unsplash.jpg",
+    "group": "pollution",
+    "title": "Waste accumulating across a coastal landscape",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      2,
+      3,
+      4
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p38",
+    "src": "assets/field-archive/p38.jpg",
+    "original": "bardia-hashemirad-HV96oPiv_2g-unsplash.jpg",
+    "group": "nature",
+    "title": "A bird among leaves",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p39",
+    "src": "assets/field-archive/p39.jpg",
+    "original": "cesar-couto-VHEd35_KDLE-unsplash.jpg",
+    "group": "weather",
+    "title": "Lightning over the sea",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p40",
+    "src": "assets/field-archive/p40.jpg",
+    "original": "christoffer-engstrom-wc9avd2RaN0-unsplash.jpg",
+    "group": "weather",
+    "title": "Turbulent ocean water",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p41",
+    "src": "assets/field-archive/p41.jpg",
+    "original": "christopher-burns-gyrrWzwqm5Y-unsplash.jpg",
+    "group": "fire",
+    "title": "Flames and burning wood",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      0
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p42",
+    "src": "assets/field-archive/p42.jpg",
+    "original": "chuttersnap-rLm4Wq96h_0-unsplash.jpg",
+    "group": "fire",
+    "title": "A small fire against darkness",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      0
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p43",
+    "src": "assets/field-archive/p43.jpg",
+    "original": "colin-maynard-CoB45gP32rc-unsplash.jpg",
+    "group": "nature",
+    "title": "Low sunlight over the sea",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      5
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p44",
+    "src": "assets/field-archive/p44.jpg",
+    "original": "damien-tupinier-OFEvgVfr6iU-unsplash.jpg",
+    "group": "nature",
+    "title": "Bees in flight near a hive",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p45",
+    "src": "assets/field-archive/p45.jpg",
+    "original": "dimitri-kolpakov-y5V9PJmOqx8-unsplash.jpg",
+    "group": "nature",
+    "title": "A lone tree in mist",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      0,
+      5
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p46",
+    "src": "assets/field-archive/p46.jpg",
+    "original": "doncoombez-Qr3U0EYcRCI-unsplash.jpg",
+    "group": "nature",
+    "title": "An insect resting on a stem",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p47",
+    "src": "assets/field-archive/p47.jpg",
+    "original": "gwen-mamanoleas-HrQm_lCmh1Q-unsplash.jpg",
+    "group": "human-memory",
+    "title": "A blurred human figure behind a translucent surface",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      4
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p48",
+    "src": "assets/field-archive/p48.jpg",
+    "original": "harshil-gudka-ko7Eb_vJfxY-unsplash.jpg",
+    "group": "nature",
+    "title": "A tree, birds and open grassland",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p49",
+    "src": "assets/field-archive/p49.jpg",
+    "original": "jacek-dylag-mmar_Xs8_mk-unsplash.jpg",
+    "group": "urban",
+    "title": "Traffic and red lights in an urban scene",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      2,
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p50",
+    "src": "assets/field-archive/p50.jpg",
+    "original": "james-lo-mDFurAWmHbw-unsplash.jpg",
+    "group": "pollution",
+    "title": "Waste accumulated at a shoreline",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      2,
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p51",
+    "src": "assets/field-archive/p51.jpg",
+    "original": "jorgen-hendriksen-BomU_atAAKQ-unsplash.jpg",
+    "group": "human-memory",
+    "title": "Motion-blurred running figure",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      4
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p52",
+    "src": "assets/field-archive/p52.jpg",
+    "original": "kadir-celep-od5qbLjNUn8-unsplash.jpg",
+    "group": "nature",
+    "title": "River and green hills",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p53",
+    "src": "assets/field-archive/p53.jpg",
+    "original": "landon-parenteau-YEsxGmZ4wLU-unsplash.jpg",
+    "group": "weather",
+    "title": "Flames within a forest",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p54",
+    "src": "assets/field-archive/p54.jpg",
+    "original": "liana-s-q-etMcVgC7c-unsplash.jpg",
+    "group": "human-memory",
+    "title": "A hand silhouette behind a translucent surface",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      4
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p55",
+    "src": "assets/field-archive/p55.jpg",
+    "original": "louise-hill-KwYxyFJVCqc-unsplash.jpg",
+    "group": "weather",
+    "title": "Rough waves breaking against cliffs",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p56",
+    "src": "assets/field-archive/p56.jpg",
+    "original": "meggyn-pomerleau-hAYy2mFLjS8-unsplash.jpg",
+    "group": "nature",
+    "title": "Bees on honeycomb",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p57",
+    "src": "assets/field-archive/p57.jpg",
+    "original": "mehdi-sepehri-cX0Yxw38cx8-unsplash.jpg",
+    "group": "nature",
+    "title": "A flock of birds in flight",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p58",
+    "src": "assets/field-archive/p58.jpg",
+    "original": "naja-bertolt-jensen-BJUoZu0mpt0-unsplash.jpg",
+    "group": "pollution",
+    "title": "Plastic debris beneath the water surface",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      2,
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p59",
+    "src": "assets/field-archive/p59.jpg",
+    "original": "navi-ysjQIrVawbs-unsplash.jpg",
+    "group": "nature",
+    "title": "Low orange sun behind bare branches",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      5
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p60",
+    "src": "assets/field-archive/p60.jpg",
+    "original": "phil-botha-20VfF_v0GZY-unsplash.jpg",
+    "group": "human-boundary",
+    "title": "Light passing through a wire fence",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      2,
+      4
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p61",
+    "src": "assets/field-archive/p61.jpg",
+    "original": "pure-julia-B8y6uvTnEvU-unsplash.jpg",
+    "group": "nature",
+    "title": "Water flowing around stones",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      0,
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p62",
+    "src": "assets/field-archive/p62.jpg",
+    "original": "pure-julia-syUVM9gZBAM-unsplash.jpg",
+    "group": "nature",
+    "title": "Light passing through leaves",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      0,
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p63",
+    "src": "assets/field-archive/p63.jpg",
+    "original": "samuele-macauda-hNNIj3ZDgsY-unsplash.jpg",
+    "group": "human-memory",
+    "title": "Hands and a blurred figure behind a translucent surface",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      4
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p64",
+    "src": "assets/field-archive/p64.jpg",
+    "original": "sian-richardson-WQUT80PTboM-unsplash.jpg",
+    "group": "nature",
+    "title": "Sunlight on the surface of the sea",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      5
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p65",
+    "src": "assets/field-archive/p65.jpg",
+    "original": "tim-mossholder-qq-8dpdlBsY-unsplash.jpg",
+    "group": "pollution",
+    "title": "A bird holding a piece of litter",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      2,
+      3
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p66",
+    "src": "assets/field-archive/p66.jpg",
+    "original": "timur-repin-AarqJKlwhyI-unsplash.jpg",
+    "group": "nature",
+    "title": "Woodland reflected in still water",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      0,
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p67",
+    "src": "assets/field-archive/p67.jpg",
+    "original": "vincent-van-zalinge-jj2ab1xIxrg-unsplash.jpg",
+    "group": "nature",
+    "title": "Birds above a wooded landscape",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [
+      1
+    ],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p68",
+    "src": "assets/field-archive/p68.jpg",
+    "original": "yoav-aziz-vnrnW01ddbc-unsplash.jpg",
+    "group": "human-memory",
+    "title": "Two figures moving at sunset",
+    "origin": "Reference image supplied by the artist; original filename retained",
+    "stages": [],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": false
+  },
+  {
+    "id": "p69",
+    "src": "assets/field-archive/p69.jpg",
+    "original": "IMG_8172.HEIC",
+    "group": "recording",
+    "title": "Fieldwork: recording beside cattle",
+    "origin": "Field documentation supplied by the artist",
+    "stages": [],
+    "audit": "Subject visually reviewed; narrative use is separate from literal subject.",
+    "exhibit": true
+  },
+  {
+    "id": "v-cans",
+    "src": "assets/user-media/cans.mp4",
+    "original": "IMG_2025.MOV",
+    "group": "installation",
+    "title": "Cans and a tree: close view",
+    "origin": "Field video supplied by the artist; excerpt shown",
+    "type": "video",
+    "start": 186,
+    "end": 196,
+    "stages": [
+      3
+    ],
+    "exhibit": true
+  },
+  {
+    "id": "v-weather",
+    "src": "assets/user-media/cans-weather.mp4",
+    "original": "IMG_2048.mov",
+    "group": "installation",
+    "title": "Cans and a tree: another weather study",
+    "origin": "Field video supplied by the artist; excerpt shown",
+    "type": "video",
+    "start": null,
+    "end": null,
+    "stages": [
+      3
+    ],
+    "exhibit": true
+  },
+  {
+    "id": "v-river",
+    "src": "assets/user-media/river.mp4",
+    "original": "IMG_2193.MOV",
+    "group": "recording",
+    "title": "Storm river field recording",
+    "origin": "Field video supplied by the artist; excerpt shown",
+    "type": "video",
+    "start": 166,
+    "end": 185,
+    "stages": [],
+    "exhibit": true
+  },
+  {
+    "id": "v-waves",
+    "src": "assets/user-media/waves.mp4",
+    "original": "IMG_3538.MOV",
+    "group": "recording",
+    "title": "Cliff waves field recording",
+    "origin": "Field video supplied by the artist; excerpt shown",
+    "type": "video",
+    "start": 210,
+    "end": 218,
+    "stages": [],
+    "exhibit": false
+  },
+  {
+    "id": "v-sea",
+    "src": "assets/user-media/calm-sea.mp4",
+    "original": "IMG_3269.mov",
+    "group": "recording",
+    "title": "Calm sea field recording",
+    "origin": "Field video supplied by the artist; excerpt shown",
+    "type": "video",
+    "start": 196,
+    "end": 201,
+    "stages": [],
+    "exhibit": false
+  },
+  {
+    "id": "v-penguin",
+    "src": "assets/user-media/penguin.mp4",
+    "original": "IMG_4342.mov",
+    "group": "recording",
+    "title": "Captive penguin field recording",
+    "origin": "Field video supplied by the artist; excerpt shown",
+    "type": "video",
+    "start": 126,
+    "end": 130,
+    "stages": [],
+    "exhibit": false
+  },
+  {
+    "id": "v-swans",
+    "src": "assets/user-media/swans.mp4",
+    "original": "IMG_2750.mov",
+    "group": "recording",
+    "title": "Birds on the water: field-video study",
+    "origin": "Field video supplied by the artist; complete short clip shown",
+    "type": "video",
+    "stages": [],
+    "exhibit": false
+  },
+  {
+    "id": "v-coast",
+    "src": "assets/user-media/coast.mp4",
+    "original": "IMG_9714.mov",
+    "group": "recording",
+    "title": "Coastal field-video study",
+    "origin": "Field video supplied by the artist; complete short clip shown",
+    "type": "video",
+    "stages": [],
+    "exhibit": false
+  }
+]

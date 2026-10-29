@@ -1,0 +1,70 @@
+/* One binding. The front board and left leaves share the same spine hinge.
+   Closed = left wing folded over the right block. Open = both wings visible. */
+.book-perspective{position:relative;width:min(72vw,800px);height:min(62vh,610px);perspective:2200px;margin:10px 0 6px}
+.book{position:relative;width:100%;height:100%;transform-style:preserve-3d;transform:translateX(calc((1 - var(--open))*-25%)) rotateX(calc(8deg - var(--open)*5deg)) rotateY(calc(-14deg + var(--open)*14deg + var(--book-y,0deg)));will-change:transform;overflow:visible}
+.book-perspective:after{content:'';position:absolute;left:8%;right:2%;bottom:-7%;height:10%;border-radius:50%;background:#22354a29;filter:blur(17px);pointer-events:none;z-index:-1}
+.hinged-wing{position:absolute;left:0;top:0;width:50%;height:100%;transform-origin:right center;transform-style:preserve-3d;transform:rotateY(calc(180deg - var(--open)*174deg));--fan:0}
+.page{position:absolute;top:0;height:100%;width:50%;background:#f6f2e8;backface-visibility:hidden;overflow:hidden;border:1px solid #c4c4b64d}
+.hinged-wing>.page-left{left:0;width:100%;transform:none;opacity:1;border-radius:12px 0 0 12px;box-shadow:inset -17px 0 22px -18px #23354777}
+.page-left{left:0;border-radius:12px 0 0 12px;cursor:zoom-in}
+.page-left>img{display:block;width:100%;height:100%;object-fit:contain}
+.page-right{left:50%;right:auto;padding:24px 22px 20px 28px;border-radius:0 12px 12px 0;transform-origin:left center;transform:rotateY(calc(var(--open)*-6deg));box-shadow:inset 16px 0 22px -17px #23354777;background:#eee9dc}
+.page:after{content:'';position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:linear-gradient(90deg,#fff1,transparent 30%,#fff1 75%,#243b5012)}
+.page-number{position:absolute;bottom:14px;left:20px;font-size:7px;letter-spacing:2px;opacity:.6}
+.page-right>.eyebrow{font-size:7px;color:#7b8e9e;margin:0}
+.page-right h2{font:32px/1.1 'Libre Caslon Display',Georgia;font-weight:400;margin:8px 0 0;position:relative;z-index:2}
+.page-right>p:not(.eyebrow){font:15px Caveat;margin:2px 0;color:#617d83}
+.page-right .text-link{position:absolute;bottom:29px;left:28px;font-size:8px;z-index:2}
+.page-foot{position:absolute;left:28px;right:20px;bottom:12px;display:flex;justify-content:space-between;font-size:5px;letter-spacing:1px;color:#7b8a98}
+.board-right{position:absolute;left:50%;top:-2px;width:calc(50% + 3px);height:calc(100% + 5px);border-radius:0 14px 14px 0;background:#285574;border:1px solid #173e5d;transform-origin:left center;transform:rotateY(calc(var(--open)*-6deg)) translateZ(-12px)}
+.depth-pages{position:absolute;top:0;height:100%;transform-style:preserve-3d;pointer-events:none}
+.depth-left-mount{left:0;width:100%}
+.depth-right-mount{left:50%;width:50%;transform-origin:left center;transform:rotateY(calc(var(--open)*-6deg));--fan:var(--open)}
+.depth-page{position:absolute;inset:0;border:1px solid #c2c1b3;background:var(--paper-tone);border-radius:11px;overflow:hidden;backface-visibility:hidden;box-shadow:0 1px 1px #253e4a22}
+.depth-left-mount .depth-page{transform:translateZ(calc(-1px - var(--depth)*1.5px)) translateX(calc((-8px - var(--depth)*13px)*var(--fan))) scaleY(calc(.99 - var(--depth)*.017));transform-origin:right center}
+.depth-right-mount .depth-page{transform:translateZ(calc(-1px - var(--depth)*1.5px)) translateX(calc((8px + var(--depth)*13px)*var(--fan))) scaleY(calc(.99 - var(--depth)*.017));transform-origin:left center}
+.depth-page img{width:100%;height:100%;object-fit:cover;border:7px solid var(--paper-tone)}
+.book-cover{position:absolute;left:-2px;top:-2px;width:calc(100% + 2px);height:calc(100% + 4px);transform:rotateY(180deg) translateZ(12px);backface-visibility:hidden;border-radius:0 13px 13px 0;background:linear-gradient(120deg,#2a608c,#214f78 40%,#173d63);border:2px solid #44657a;cursor:pointer;box-shadow:inset -2px 0 4px #0e294555}
+.cover-border{position:absolute;inset:22px;border:1px solid #c4d8d16b;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#e9eee4;padding:18px}
+.cover-border>span{font-size:6px;letter-spacing:2px;position:absolute;top:23px}.cover-border p{font:48px 'Libre Caslon Display',Georgia;margin:5px 0}.cover-border i{font:23px Caveat;color:#c6dbd8}.cover-orbit{font:24px/1 monospace;border:1px solid #bbd2d466;border-radius:50%;padding:22px;margin:25px 0;transform:rotate(-20deg);color:#b7c9c6}.cover-border>b{font-size:12px;letter-spacing:5px;font-weight:400}.cover-border>small{font-size:7px;letter-spacing:2px;margin-top:15px}
+.spine{position:absolute;left:calc(50% - 5px);top:0;width:10px;height:100%;background:linear-gradient(90deg,transparent,#17334a44 46%,#f8f3df66 52%,#17334a33 60%,transparent);pointer-events:none;opacity:var(--open);transform:translateZ(.5px)}
+.album-caption,.turn-sheet{display:none!important}
+/* Local snapshots only exist while a single physical leaf is turning. */
+.leaf-segment{position:absolute;top:0;left:100%;transform-origin:left center;transform-style:preserve-3d;pointer-events:none}
+.moving-leaf{top:0;transform-origin:left center}
+.leaf-face{position:absolute;inset:0;width:calc(100% + .5px);overflow:hidden;backface-visibility:hidden;background:#f1ecdf;transform:translateZ(.25px)}
+.leaf-rear{transform:rotateY(180deg) translateZ(.25px)}
+.leaf-face:after{content:'';position:absolute;inset:0;background:rgba(17,37,57,var(--shade,0));pointer-events:none}
+.leaf-face>.leaf-art{position:absolute!important;top:0!important;bottom:auto!important;right:auto!important;transform:none!important;opacity:1!important;border-radius:0!important;box-shadow:none!important;pointer-events:none!important}
+.leaf-art .contact-sheet button{transition:none!important}
+.resting-page{pointer-events:none!important}
+.resting-page.page-left{left:0;width:50%;transform-origin:right center;transform:rotateY(6deg)}
+.leaf-turning .page{pointer-events:none}
+.book:after{content:'';position:absolute;left:50%;top:0;bottom:0;width:50%;pointer-events:none;background:linear-gradient(90deg,#142b4555,transparent 85%);opacity:var(--leaf-shadow,0);transform:rotateY(-6deg) translateZ(.3px);transform-origin:left}
+.book[data-layout="1"] .page-right,.book[data-layout="4"] .page-right{background:#e1e9e3}.book[data-layout="2"] .page-right{background:repeating-linear-gradient(0deg,#f7f3e9 0 20px,#174aaf16 20px 21px)}.book[data-layout="3"] .page-right{background:#e5e8ed}.book[data-layout="5"] .page-right{background:#ece3d3}
+.book[data-layout="1"] .contact-sheet{transform:rotate(7deg)}.book[data-layout="2"] .contact-sheet{inset:23% 8% 15%;transform:rotate(-6deg)}.book[data-layout="3"] .contact-sheet button.memory-card{height:59%;width:53%;padding-bottom:19px}.book[data-layout="4"] .contact-sheet button.memory-card:nth-child(even){border-radius:45% 45% 1px 1px}.book[data-layout="5"] .contact-sheet{transform:rotate(-10deg)}.book[data-layout="5"] .memory-card:before{background:#174aaf33;width:45%;left:25%}
+@media(max-width:600px){.book-perspective{width:79vw;height:min(49vh,64vw);margin:12px 0}.depth-left-mount .depth-page{transform:translateZ(calc(-1px - var(--depth)*1px)) translateX(calc((-5px - var(--depth)*6px)*var(--fan))) scaleY(calc(.99 - var(--depth)*.017))}.depth-right-mount .depth-page{transform:translateZ(calc(-1px - var(--depth)*1px)) translateX(calc((5px + var(--depth)*6px)*var(--fan))) scaleY(calc(.99 - var(--depth)*.017))}.depth-page img{border-width:4px}.page-right{padding:12px 10px 12px 14px}.page-right h2{font-size:22px;margin:4px 0}.page-right>.eyebrow{font-size:4px;letter-spacing:1px}.page-right>p:not(.eyebrow){font-size:10px;margin:0}.page-right .text-link{font-size:5px;left:14px;bottom:21px}.page-foot{font-size:3px;left:14px;right:10px;bottom:8px}.page-number{font-size:5px;left:10px;bottom:9px}.cover-border{inset:10px;padding:8px}.cover-border p{font-size:27px}.cover-border i{font-size:14px}.cover-border>span{font-size:3px;top:10px}.cover-orbit{font-size:12px;padding:9px;margin:10px 0}.cover-border>b{font-size:7px}.cover-border>small{font-size:4px;margin-top:6px}}
+
+.journey{overflow-anchor:none}
+.resting-page.page-left{transform:rotateY(6deg) translateZ(.05px)}
+.resting-page.page-right{transform:rotateY(-6deg) translateZ(.05px)}
+/* GPU journal: no visible HTML snapshots, panels, or competing CSS 3D layers. */
+.paper-webgl{position:absolute;inset:0;display:block;width:100%;height:100%;z-index:2;touch-action:pan-y;outline-offset:5px}
+.book-perspective.webgl-ready>.book{opacity:0;pointer-events:none}
+.book-perspective.webgl-ready>.book *{pointer-events:none!important}
+.book-perspective.webgl-ready:after{display:none}
+.book-perspective:has(.paper-webgl){width:min(86vw,1020px);height:min(65vh,650px);perspective:none}
+.paper-webgl:focus-visible{outline:1px dashed var(--teal)}
+@media(max-width:600px){.book-perspective:has(.paper-webgl){width:94vw;height:min(52vh,74vw)}}
+
+/* Render beyond the layout box while keeping controls above the transparent canvas. */
+.book-perspective:has(.paper-webgl){overflow:visible}
+.album-heading,.album-controls{position:relative;z-index:5}
+
+/* Keep the final journal layout stable while its first spread is prepared. */
+.book-perspective:not(.webgl-ready):not(.webgl-failed)>.book{visibility:hidden;pointer-events:none}
+.book-perspective:not(.webgl-ready):not(.webgl-failed):after{display:none}
+.journal-loading{position:absolute;inset:0;display:grid;place-items:center;margin:0;color:var(--blue,#2051b8);font:12px monospace;letter-spacing:.12em;text-align:center;pointer-events:none}
+.book-perspective.webgl-ready>.journal-loading,.book-perspective.webgl-failed>.journal-loading{display:none}
+
+.book-perspective.spread-loading>.journal-loading{display:grid;inset:auto 0 -18px;padding:6px;background:#f4f1e8e8;z-index:3}

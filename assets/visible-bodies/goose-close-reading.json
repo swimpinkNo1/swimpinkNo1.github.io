@@ -1,0 +1,408 @@
+{
+  "story": "A Ride in a Goose Cage",
+  "sourceEdition": "Li et al., 1998 · Into the Porcelain Pillow, pp. 54–56",
+  "paragraphs": [
+    "In the Eastern Jin Dynasty Xu Yan, a native of Yangxian County, once traveled through the Suian Mountains, carrying on his back a pair of geese in a cage. He came upon a student­ scholar about 18 years old lying by the roadside and complaining of sore feet. He didn't take the young man seriously when he asked for a lift in his goose cage. But while he was musing over this whimsical notion, the youth had slipped through the bars into the cage and sat side by side with the geese. Strange to say, the geese showed no alarm and the cage did not in any way expand, neither did the scholar seem to contract. As he picked up his load to continue his trip, he was surprised to find that it was not any heavier.",
+    "Having traveled thus for some distance, he stopped for a rest under a shady tree. The scholar stepped out from the cage and said, \"How about me offering you a quick snack?\" \"That'll be fine,\" Xu replied. Then from his mouth, the young man produced a round, bronze food-container, from which he extracted delicious dishes of the rarest sea and land produce, and laid them out on the ground before Xu-all on shining bronze plates. It would have taken a very large table to hold them all. The smell of the food itself was appetizing enough to attract the gods. After drinking a few cups, the youth said, \"I've a habit of bringing a mistress along. You won't mind if I call her forth?\" \"Do as you please,\" said Xu.",
+    "Finding no objection from Xu, the scholar disgorged from his mouth a girl of the budding age of 16, her clothes bright with color, her features of celestial beauty. She sat down and dined with them.",
+    "Soon the scholar seemed to be overcome with wine and dozed off. The girl turned to Xu and said, \"Though I'm his mistress, I've got a lover of my own choice, and I always sneak him along. Now that he is asleep, I shall invite my man. Hope you won't mention this to the scholar.\" \"Do as you please,\" was Xu's reply. Thereupon the girl extracted from her mouth a young man about 24 years old with a handsome and intelligent look, who cordially exchanged compliments with Xu. Just then, the scholar stirred as if he were about to wake up. The girl in1mediately took out a brocade portable screen from her mouth and set it up. She then went behind it to sleep with the scholar.",
+    "The  handsome  man  turned  to  Xu  and  whispered,  \"A lovely girl, isn't she? Yet, a man, you see, sometimes may have more than one mistress. I keep another woman. This see1ns a good opportunity for a fast date. Please don't give away my little secret.\" \"As you please,\" Xu said dutifully. The man opened his mouth and brought out a woman in her early twenties. They sat and dined, hugging and kissing all the time. A good while passed when a rustling was heard behind the screen. \"They're waking up,\" the man said. He grabbed up the woman and stuffed her back into his mouth.",
+    "In a moment, the girl reappeared from behind the screen. \"The scholar is going to wake up,\" she said to Xu as she swallowed her man and sat down opposite Xu. The scholar then emerged and said apologetically to Xu, \"Sorry for nap­ ping so long and leaving you unattended. You must have been bored. Now it's getting late, I must say good-bye to you.\" He threw the girl and all the bronzeware back into his mouth, except for one king-size plate about two feet across which he handed to Xu and said, \"I've nothing else to show my gratitude. Please accept this plate as a souvenir.\"",
+    "Xu became an archivist during Taiyuan reign of the Eastern Jin Dynasty. He showed the plate to a palace officer who figured out from the plate's epigraph that it was produced more than three centuries before in the third year of Yongping reign of the Han Dynasty."
+  ],
+  "categories": [
+    {
+      "id": "discipline",
+      "title": "Acted upon"
+    },
+    {
+      "id": "agency",
+      "title": "She acts"
+    },
+    {
+      "id": "body",
+      "title": "Body & objects"
+    },
+    {
+      "id": "descriptors",
+      "title": "Descriptions"
+    }
+  ],
+  "entries": [
+    {
+      "id": "descriptors-bright",
+      "category": "descriptors",
+      "lemma": "bright",
+      "tableFrequency": 1,
+      "anchors": [
+        {
+          "paragraph": 2,
+          "start": 112,
+          "end": 118,
+          "surface": "bright",
+          "context": "her clothes bright with color"
+        }
+      ],
+      "interpretation": "The adjective describes her clothes within a staged introduction of the girl’s appearance.",
+      "reviewNote": null
+    },
+    {
+      "id": "descriptors-lovely",
+      "category": "descriptors",
+      "lemma": "lovely",
+      "tableFrequency": 1,
+      "anchors": [
+        {
+          "paragraph": 4,
+          "start": 56,
+          "end": 62,
+          "surface": "lovely",
+          "context": "lovely girl, isn't she?"
+        }
+      ],
+      "interpretation": "The man invites another man to appraise the woman’s appearance. A favourable adjective can still participate in objectification.",
+      "reviewNote": null
+    },
+    {
+      "id": "body-mouth",
+      "category": "body",
+      "lemma": "mouth",
+      "tableFrequency": 6,
+      "anchors": [
+        {
+          "paragraph": 2,
+          "start": 61,
+          "end": 66,
+          "surface": "mouth",
+          "context": "the scholar disgorged from his mouth a girl"
+        },
+        {
+          "paragraph": 3,
+          "start": 352,
+          "end": 357,
+          "surface": "mouth",
+          "context": "the girl extracted from her mouth a young man"
+        },
+        {
+          "paragraph": 4,
+          "start": 572,
+          "end": 577,
+          "surface": "mouth",
+          "context": "stuffed her back into his mouth"
+        }
+      ],
+      "interpretation": "Mouths are containers in this nested narrative. These selected passages involve both male and female characters; the word does not always name a woman’s body.",
+      "reviewNote": null
+    },
+    {
+      "id": "body-feature",
+      "category": "body",
+      "lemma": "feature",
+      "tableFrequency": 1,
+      "anchors": [
+        {
+          "paragraph": 2,
+          "start": 135,
+          "end": 143,
+          "surface": "features",
+          "context": "her features of celestial beauty"
+        }
+      ],
+      "interpretation": "The plural form “features” describes the girl through her appearance.",
+      "reviewNote": null
+    },
+    {
+      "id": "body-hand",
+      "category": "body",
+      "lemma": "hand",
+      "tableFrequency": 1,
+      "anchors": [],
+      "interpretation": "The table records the noun “hand”, but a matching noun use has not been confirmed in this OCR.",
+      "reviewNote": "Held for review: “handed” appears in the story, but it is a verb and is not evidence for this noun entry."
+    },
+    {
+      "id": "agency-sit",
+      "category": "agency",
+      "lemma": "sit",
+      "tableFrequency": 1,
+      "anchors": [
+        {
+          "paragraph": 2,
+          "start": 169,
+          "end": 172,
+          "surface": "sat",
+          "context": "She sat down and dined with them."
+        }
+      ],
+      "interpretation": "The girl is the grammatical subject of this action. The located passage is a selected example, not a recount of all occurrences.",
+      "reviewNote": null
+    },
+    {
+      "id": "agency-turn",
+      "category": "agency",
+      "lemma": "turn",
+      "tableFrequency": 1,
+      "anchors": [
+        {
+          "paragraph": 3,
+          "start": 73,
+          "end": 79,
+          "surface": "turned",
+          "context": "The girl turned to Xu and said"
+        }
+      ],
+      "interpretation": "The girl initiates a conversation. This is distinguished from the later passage where the handsome man turns to Xu.",
+      "reviewNote": null
+    },
+    {
+      "id": "agency-take",
+      "category": "agency",
+      "lemma": "take",
+      "tableFrequency": 1,
+      "anchors": [
+        {
+          "paragraph": 3,
+          "start": 557,
+          "end": 561,
+          "surface": "took",
+          "context": "The girl in1mediately took out a brocade portable screen"
+        }
+      ],
+      "interpretation": "The girl takes out a screen and arranges a private space. The source OCR spelling is retained.",
+      "reviewNote": null
+    },
+    {
+      "id": "agency-go",
+      "category": "agency",
+      "lemma": "go",
+      "tableFrequency": 1,
+      "anchors": [
+        {
+          "paragraph": 3,
+          "start": 631,
+          "end": 635,
+          "surface": "went",
+          "context": "She then went behind it to sleep with the scholar."
+        }
+      ],
+      "interpretation": "An irregular verb form is explicitly linked to “go”; the woman is the acting subject.",
+      "reviewNote": null
+    },
+    {
+      "id": "agency-reappear",
+      "category": "agency",
+      "lemma": "reappear",
+      "tableFrequency": 1,
+      "anchors": [
+        {
+          "paragraph": 5,
+          "start": 22,
+          "end": 32,
+          "surface": "reappeared",
+          "context": "the girl reappeared from behind the screen"
+        }
+      ],
+      "interpretation": "The girl returns into the visible narrative space.",
+      "reviewNote": null
+    },
+    {
+      "id": "agency-say",
+      "category": "agency",
+      "lemma": "say",
+      "tableFrequency": 1,
+      "anchors": [
+        {
+          "paragraph": 5,
+          "start": 96,
+          "end": 100,
+          "surface": "said",
+          "context": "she said to Xu as she swallowed her man"
+        }
+      ],
+      "interpretation": "The girl speaks, while also controlling the return of her own lover. Agency and containment coexist.",
+      "reviewNote": null
+    },
+    {
+      "id": "agency-swallow",
+      "category": "agency",
+      "lemma": "swallow",
+      "tableFrequency": 1,
+      "anchors": [
+        {
+          "paragraph": 5,
+          "start": 114,
+          "end": 123,
+          "surface": "swallowed",
+          "context": "she swallowed her man"
+        }
+      ],
+      "interpretation": "Here a woman contains a man. The action cannot be labelled simply as something done to a woman.",
+      "reviewNote": null
+    },
+    {
+      "id": "discipline-bring",
+      "category": "discipline",
+      "lemma": "bring",
+      "tableFrequency": 2,
+      "anchors": [
+        {
+          "paragraph": 1,
+          "start": 618,
+          "end": 626,
+          "surface": "bringing",
+          "context": "I've a habit of bringing a mistress along."
+        },
+        {
+          "paragraph": 4,
+          "start": 321,
+          "end": 328,
+          "surface": "brought",
+          "context": "brought out a woman in her early twenties."
+        }
+      ],
+      "interpretation": "Two different inflected forms are located. In each, a male character presents a female companion as someone he can bring into the scene.",
+      "reviewNote": null
+    },
+    {
+      "id": "discipline-call",
+      "category": "discipline",
+      "lemma": "call",
+      "tableFrequency": 1,
+      "anchors": [
+        {
+          "paragraph": 1,
+          "start": 665,
+          "end": 669,
+          "surface": "call",
+          "context": "You won't mind if I call her forth?"
+        }
+      ],
+      "interpretation": "Permission is sought from another man before the woman is brought into the gathering.",
+      "reviewNote": null
+    },
+    {
+      "id": "discipline-disgorge",
+      "category": "discipline",
+      "lemma": "disgorge",
+      "tableFrequency": 1,
+      "anchors": [
+        {
+          "paragraph": 2,
+          "start": 42,
+          "end": 51,
+          "surface": "disgorged",
+          "context": "the scholar disgorged from his mouth a girl"
+        }
+      ],
+      "interpretation": "The girl appears as something produced from the scholar’s body. The thesis reads this action as containment and objectification.",
+      "reviewNote": null
+    },
+    {
+      "id": "discipline-whisper",
+      "category": "discipline",
+      "lemma": "whisper",
+      "tableFrequency": 1,
+      "anchors": [],
+      "interpretation": "This entry needs contextual review before being marked as an action imposed on a woman.",
+      "reviewNote": "Held for review: the located “whispered” describes the handsome man speaking to Xu, rather than an action grammatically done to the woman."
+    },
+    {
+      "id": "discipline-have",
+      "category": "discipline",
+      "lemma": "have",
+      "tableFrequency": 1,
+      "anchors": [
+        {
+          "paragraph": 4,
+          "start": 115,
+          "end": 119,
+          "surface": "have",
+          "context": "a man, you see, sometimes may have more than one mistress."
+        }
+      ],
+      "interpretation": "The speaker frames multiple female companions as something a man may have. This is a contextual reading of possession, not grammatical passivity.",
+      "reviewNote": null
+    },
+    {
+      "id": "discipline-keep",
+      "category": "discipline",
+      "lemma": "keep",
+      "tableFrequency": 1,
+      "anchors": [
+        {
+          "paragraph": 4,
+          "start": 146,
+          "end": 150,
+          "surface": "keep",
+          "context": "I keep another woman."
+        }
+      ],
+      "interpretation": "The speaker describes another woman through a relation of keeping or possession.",
+      "reviewNote": null
+    },
+    {
+      "id": "discipline-grab",
+      "category": "discipline",
+      "lemma": "grab",
+      "tableFrequency": 1,
+      "anchors": [
+        {
+          "paragraph": 4,
+          "start": 521,
+          "end": 528,
+          "surface": "grabbed",
+          "context": "He grabbed up the woman and stuffed her back into his mouth."
+        }
+      ],
+      "interpretation": "The man is the agent and the woman is the object of a forceful action.",
+      "reviewNote": null
+    },
+    {
+      "id": "discipline-stuff",
+      "category": "discipline",
+      "lemma": "stuff",
+      "tableFrequency": 1,
+      "anchors": [
+        {
+          "paragraph": 4,
+          "start": 546,
+          "end": 553,
+          "surface": "stuffed",
+          "context": "He grabbed up the woman and stuffed her back into his mouth."
+        }
+      ],
+      "interpretation": "The woman is physically returned into a container. The artist’s critique depends on this context, even when a sentiment label is neutral.",
+      "reviewNote": null
+    },
+    {
+      "id": "discipline-throw",
+      "category": "discipline",
+      "lemma": "throw",
+      "tableFrequency": 1,
+      "anchors": [
+        {
+          "paragraph": 5,
+          "start": 352,
+          "end": 357,
+          "surface": "threw",
+          "context": "He threw the girl and all the bronzeware back into his mouth"
+        }
+      ],
+      "interpretation": "The girl and the bronzeware are returned together. The shared action is central to the artist’s reading of people as portable possessions.",
+      "reviewNote": null
+    }
+  ],
+  "sentenceSentiment": {
+    "positive": 12,
+    "negative": 2,
+    "neutral": 19,
+    "total": 33,
+    "source": "Emotion Table Sentiment & Lexical Statistics.xlsx · Sentences' sentiment analysis · C2:D2"
+  },
+  "sources": {
+    "lexical": "Nouns, adjectives and verbs · D2",
+    "limitations": "Limitations of coding mechanism · D2",
+    "thesis": "Sections 3.2, 3.3 and 3.5"
+  },
+  "review": "Curated textual examples; table frequencies are preserved, not recomputed from these examples. This display is not a complete reconstruction of the original NLP annotation."
+}

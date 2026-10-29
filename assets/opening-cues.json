@@ -1,0 +1,108 @@
+{
+  "source": "Artist’s research glossary",
+  "sheet": "Sheet1",
+  "scope": [
+    0,
+    31
+  ],
+  "events": [
+    {
+      "id": "g2",
+      "row": 2,
+      "start": 0,
+      "end": 31,
+      "timeLabel": "0:00–0:31",
+      "material": "170247__matucha__campfire_01.wav",
+      "function": "Represents the discovery of fire",
+      "meaning": "Fire as the ancient symbol of life and rebirth.",
+      "processing": "Close ambient effect and reverb added",
+      "source": "https://freesound.org",
+      "visualId": "fire",
+      "label": "Fire"
+    },
+    {
+      "id": "g3",
+      "row": 3,
+      "start": 0,
+      "end": 30,
+      "timeLabel": "0:00–0:30",
+      "material": "478737__chris5s__summer-evening-crickets-080319.wav",
+      "function": "Depicts a summer forest night",
+      "meaning": "Crickets echo the pulse of nature. ",
+      "processing": "Distant ambient effect and reverb added, Stereo Expander",
+      "source": "https://freesound.org",
+      "visualId": "crickets",
+      "label": "Crickets"
+    },
+    {
+      "id": "g4",
+      "row": 4,
+      "start": 0,
+      "end": 30,
+      "timeLabel": "0:00–0:30",
+      "material": "Final Project instrument simulation - 27:04:2025 21.32.mp3",
+      "function": "Human humming mimicking the forest voice",
+      "meaning": "Humming echoes the sounds of nature, suggesting that many human vocal expressions may have always been imitations of the natural world.the human voice is itself a chorus of life.",
+      "processing": "Time-based reverb created in GarageBand, Stereo Expander",
+      "source": "Field Recording (artist’s voice)",
+      "visualId": "voice",
+      "label": "Human humming"
+    },
+    {
+      "id": "g5",
+      "row": 5,
+      "start": 0,
+      "end": 13,
+      "timeLabel": "0:00–0:13",
+      "material": "748954__starpuppy__shaking-pounding-beating.mp3",
+      "function": "Symbolizes the birth of humanity and harmony with nature",
+      "meaning": "The heartbeat of the Earth. ",
+      "processing": "Close ambient effect, added reverb",
+      "source": "https://freesound.org",
+      "visualId": "heartbeat",
+      "label": "Heartbeat"
+    },
+    {
+      "id": "g6",
+      "row": 6,
+      "start": 12,
+      "end": 80,
+      "timeLabel": "0:12–1:20",
+      "material": "030325_082858_TrLR.WAV",
+      "function": "Bird dialogues enriching the lively forest scene",
+      "meaning": "Birds as envoys of freedom and transition. ",
+      "processing": "Close ambient effect and reverb",
+      "source": "Field Recording, Cork (morning)",
+      "visualId": "birds",
+      "label": "Birds"
+    },
+    {
+      "id": "g7",
+      "row": 7,
+      "start": 11,
+      "end": 50,
+      "timeLabel": "0:11–0:50",
+      "material": "IMG_1935.mov",
+      "function": "Enhances dynamic flow and life force",
+      "meaning": "Water as a symbol of renewal and endless motion.",
+      "processing": "Close ambient effect and reverb",
+      "source": "Field Recording, Cork park",
+      "visualId": "water",
+      "label": "Water"
+    },
+    {
+      "id": "g8",
+      "row": 8,
+      "start": 31,
+      "end": 63,
+      "timeLabel": "0:31–1:03",
+      "material": "IMG_2424.MOV",
+      "function": "Represents nature’s own dialogue",
+      "meaning": "Wind as a whisper of eternity.",
+      "processing": "Close ambient effect and reverb, Stereo Expander",
+      "source": "Field Recording, Cork park",
+      "visualId": "wind",
+      "label": "Wind"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+export const mirrorMessages=[
+ 'See the love everywhere!',
+ 'Take time to reflect.',
+ 'It all starts with loving yourself.',
+ 'The light you seek is already within you.',
+ 'Leave a little light wherever you go.',
+ 'You do not have to shine alone.',
+ 'A small hello can open a hidden door.',
+ 'Somewhere, your kindness is still glowing.',
+ 'There is room for you in this circle.',
+ 'Not all magic is hidden. Some of it is kindness.',
+ 'Look closer. A connection may be waiting.',
+ 'The next beautiful thing may begin with you.',
+ 'Let your kindness be the secret they remember.',
+ 'Some doors open when we listen.',
+ 'You are allowed to begin again.',
+ 'A stranger today, a friend in another story.',
+ 'Your smallest kindness may become someone’s light.',
+ 'Make room for the wonder in each other.',
+ 'The mirror sees a beginning, not an ending.',
+ 'Every reflection holds another possibility.',
+ 'A little warmth can find its way through the mist.',
+ 'Be the unexpected kindness in someone’s story.',
+ 'Follow the light. Leave the door open for others.',
+ 'You belong here, even before the magic begins.'
+];
+export function createMessageDeck(random=Math.random){let bag=[],last;return()=>{if(!bag.length){bag=[...mirrorMessages];for(let i=bag.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[bag[i],bag[j]]=[bag[j],bag[i]]}if(bag.at(-1)===last)[bag[0],bag[bag.length-1]]=[bag.at(-1),bag[0]]}last=bag.pop();return last}}

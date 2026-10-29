@@ -1,0 +1,96 @@
+forest.jpg ← timur-repin-AarqJKlwhyI-unsplash.jpg
+fire.jpg ← christopher-burns-gyrrWzwqm5Y-unsplash.jpg
+bird.jpg ← bardia-hashemirad-HV96oPiv_2g-unsplash.jpg
+field.jpg ← IMG_3653.JPG (riverside can photograph)
+river.mp4 / water.jpg ← IMG_2193.MOV (web derivative)
+Original names retained here for attribution review.
+sea.jpg ← IMG_3482.jpg
+storm.jpg ← cesar-couto-VHEd35_KDLE-unsplash.jpg
+litter.jpg ← IMG_1790.jpg
+city.jpg ← jacek-dylag-mmar_Xs8_mk-unsplash.jpg
+aftermath.jpg ← colin-maynard-CoB45gP32rc-unsplash.jpg
+sheep.jpg ← 4f14d57639ec26a5d63b61fc04e280ef.JPG
+bees.jpg ← meggyn-pomerleau-hAYy2mFLjS8-unsplash.jpg
+
+Additional field footage used at glossary timings:
+calm-sea.mp4 — IMG_3269.mov — calm sea, 3:16–3:21
+penguin.mp4 — IMG_4342.mov — captive penguin, 2:06–2:10
+
+Reviewed visual library (literal subjects; only selected records appear in the making-process collections):
+2.JPG — Collected cans and packaging
+25469512628bc5381d90c109a2a4bd96.JPG — Camels in a snow-covered landscape
+4f14d57639ec26a5d63b61fc04e280ef.JPG — Cattle in a flowering pasture
+5.JPG — Cans suspended from a tree
+7ac6df8125b97728e6014ad5724be026.JPG — Snow-covered mountains and open ground
+IMG_0268.JPG — Sheep resting in grass
+IMG_0823.jpg — A river in winter
+IMG_1021.jpg — Discarded packaging in vegetation
+IMG_1720.jpg — Birds perched on bare branches
+IMG_1743.jpg — A can in the undergrowth
+IMG_1745.jpg — An aluminium can among brambles
+IMG_1751.jpg — A discarded glass bottle among ivy
+IMG_1757.jpg — Litter among stones and plants
+IMG_1790.jpg — An aluminium can on moss
+IMG_1796.jpg — Discarded bottles scattered among ivy
+IMG_1896.JPG — A bottle lodged in a tree
+IMG_3482.jpg — Grass above a quiet coastline
+IMG_3552.jpg — Rocky coastline and evening light
+IMG_3653.JPG — An aluminium can lodged in a riverside tree
+IMG_3664.jpg — Handheld recorder beside vegetation
+IMG_3665.jpg — Recording outdoors beside a path
+IMG_5352.JPG — A herd at sunset
+IMG_5447.JPG — A discarded can floating in water
+IMG_7208.JPG — A small insect on a leaf
+IMG_7522.JPG — A frog among leaves and earth
+IMG_7525.JPG — A frog beside a leaf
+IMG_7688.jpg — Light through a wooded path
+IMG_9235.jpg — Flowers above the sea
+IMG_9242.JPG — Clear water beside coastal rocks
+IMG_9757.jpg — A stack of stones on a misty beach
+IMG_9878.jpg — Looking into a tree canopy
+PHOTO-2025-02-10-16-19-20.jpg — Working with the tree-mounted can installation
+Screenshot 2025-09-18 at 10.40.05.png — GeoImgr: extracting photograph locations
+Screenshot 2025-09-18 at 10.45.23.png — TwoTone: location data as musical material
+Screenshot 2025-09-18 at 11.02.23.png — p5.js: data-driven sound and visualisation
+andrea-ferrario-7SP-NotqFrE-unsplash.jpg — Lightning above a built skyline
+antoine-giret-7_TSzqJms4w-unsplash.jpg — Waste accumulating across a coastal landscape
+bardia-hashemirad-HV96oPiv_2g-unsplash.jpg — A bird among leaves
+cesar-couto-VHEd35_KDLE-unsplash.jpg — Lightning over the sea
+christoffer-engstrom-wc9avd2RaN0-unsplash.jpg — Turbulent ocean water
+christopher-burns-gyrrWzwqm5Y-unsplash.jpg — Flames and burning wood
+chuttersnap-rLm4Wq96h_0-unsplash.jpg — A small fire against darkness
+colin-maynard-CoB45gP32rc-unsplash.jpg — Low sunlight over the sea
+damien-tupinier-OFEvgVfr6iU-unsplash.jpg — Bees in flight near a hive
+dimitri-kolpakov-y5V9PJmOqx8-unsplash.jpg — A lone tree in mist
+doncoombez-Qr3U0EYcRCI-unsplash.jpg — An insect resting on a stem
+gwen-mamanoleas-HrQm_lCmh1Q-unsplash.jpg — A blurred human figure behind a translucent surface
+harshil-gudka-ko7Eb_vJfxY-unsplash.jpg — A tree, birds and open grassland
+jacek-dylag-mmar_Xs8_mk-unsplash.jpg — Traffic and red lights in an urban scene
+james-lo-mDFurAWmHbw-unsplash.jpg — Waste accumulated at a shoreline
+jorgen-hendriksen-BomU_atAAKQ-unsplash.jpg — Motion-blurred running figure
+kadir-celep-od5qbLjNUn8-unsplash.jpg — River and green hills
+landon-parenteau-YEsxGmZ4wLU-unsplash.jpg — Flames within a forest
+liana-s-q-etMcVgC7c-unsplash.jpg — A hand silhouette behind a translucent surface
+louise-hill-KwYxyFJVCqc-unsplash.jpg — Rough waves breaking against cliffs
+meggyn-pomerleau-hAYy2mFLjS8-unsplash.jpg — Bees on honeycomb
+mehdi-sepehri-cX0Yxw38cx8-unsplash.jpg — A flock of birds in flight
+naja-bertolt-jensen-BJUoZu0mpt0-unsplash.jpg — Plastic debris beneath the water surface
+navi-ysjQIrVawbs-unsplash.jpg — Low orange sun behind bare branches
+phil-botha-20VfF_v0GZY-unsplash.jpg — Light passing through a wire fence
+pure-julia-B8y6uvTnEvU-unsplash.jpg — Water flowing around stones
+pure-julia-syUVM9gZBAM-unsplash.jpg — Light passing through leaves
+samuele-macauda-hNNIj3ZDgsY-unsplash.jpg — Hands and a blurred figure behind a translucent surface
+sian-richardson-WQUT80PTboM-unsplash.jpg — Sunlight on the surface of the sea
+tim-mossholder-qq-8dpdlBsY-unsplash.jpg — A bird holding a piece of litter
+timur-repin-AarqJKlwhyI-unsplash.jpg — Woodland reflected in still water
+vincent-van-zalinge-jj2ab1xIxrg-unsplash.jpg — Birds above a wooded landscape
+yoav-aziz-vnrnW01ddbc-unsplash.jpg — Two figures moving at sunset
+IMG_8172.HEIC — Fieldwork: recording beside cattle
+IMG_2025.MOV — Cans and a tree: close view
+IMG_2048.mov — Cans and a tree: another weather study
+IMG_2193.MOV — Storm river field recording
+IMG_3538.MOV — Cliff waves field recording
+IMG_3269.mov — Calm sea field recording
+IMG_4342.mov — Captive penguin field recording
+IMG_2750.mov — Birds on the water: field-video study
+IMG_9714.mov — Coastal field-video study

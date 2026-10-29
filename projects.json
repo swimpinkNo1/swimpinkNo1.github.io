@@ -1,0 +1,118 @@
+{
+  "research": [
+    [
+      "Ecological Echoes",
+      "Sound, ecology & survival",
+      "assets/user-media/shore.jpg",
+      "ecological-echoes.html"
+    ],
+    [
+      "Invisible Power",
+      "Material, bodies & power",
+      "assets/covers/invisible-power.jpg",
+      "visible-bodies.html"
+    ],
+    [
+      "Behavioral Ripples",
+      "Personal data & emotional patterns",
+      "assets/covers/behavioral-ripples-selected.png",
+      "https://invisiblepalmistry.com/digital-humanities/data-visualization/"
+    ]
+  ],
+  "playground": [
+    [
+      "Magic Artist Mirror",
+      "Breath, touch & light",
+      "assets/magic-mirror/render-1.jpg",
+      "magic-mirror.html"
+    ]
+  ],
+  "commercial": [
+    [
+      "Kikkoman",
+      "Short films & food storytelling",
+      "assets/commercial/thumbnails/kikkoman.webp",
+      "commercial-case.html?case=kikkoman",
+      null,
+      5
+    ],
+    [
+      "NBA KIDS",
+      "Seasonal campaign films",
+      "assets/commercial/thumbnails/nba-kids.webp",
+      "commercial-case.html?case=nba-kids",
+      null,
+      4
+    ],
+    [
+      "Viatris / Ouqin",
+      "Brand concept & campaign",
+      "assets/commercial/thumbnails/ouqin.webp",
+      "commercial-case.html?case=ouqin"
+    ],
+    [
+      "Pfizer / Cejemly",
+      "Launch identity & event",
+      "assets/commercial/thumbnails/cejemly.webp",
+      "commercial-case.html?case=cejemly"
+    ],
+    [
+      "Pfizer / Xalkori",
+      "Campaign & interactive experience",
+      "assets/commercial/thumbnails/xalkori.webp",
+      "commercial-case.html?case=xalkori"
+    ],
+    [
+      "AstraZeneca / Pulmicort",
+      "Character-led brand storytelling",
+      "assets/commercial/thumbnails/pulmicort.webp",
+      "commercial-case.html?case=pulmicort",
+      null,
+      7
+    ],
+    [
+      "BEKIND",
+      "E-commerce & social campaign",
+      "assets/commercial/thumbnails/bekind.webp",
+      "commercial-case.html?case=bekind",
+      null,
+      6
+    ],
+    [
+      "BIOHYALUX",
+      "Double Eleven campaign",
+      "assets/commercial/thumbnails/biohyalux.webp",
+      "commercial-case.html?case=biohyalux",
+      null,
+      1
+    ],
+    [
+      "Alibaba / DingTalk",
+      "International Women’s Day campaign",
+      "assets/commercial/thumbnails/dingtalk.webp",
+      "commercial-case.html?case=dingtalk",
+      null,
+      2
+    ],
+    [
+      "Johnson & Johnson / Rogaine",
+      "China launch & brand building",
+      "assets/commercial/thumbnails/rogaine.webp",
+      "commercial-case.html?case=rogaine",
+      null,
+      3
+    ],
+    [
+      "Social Content",
+      "Selected graphic & social work",
+      "assets/commercial/thumbnails/social-content.webp",
+      "commercial-case.html?case=social-content"
+    ],
+    [
+      "Video Ad Collection",
+      "Commercial films & animations",
+      "assets/commercial/thumbnails/video-collection.webp",
+      "commercial-case.html?case=video-collection"
+    ]
+  ]
+}
