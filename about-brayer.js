@@ -4,11 +4,11 @@ const host = document.querySelector('.brayer-cursor');
 if (host) {
   try {
     const renderer = new THREE.WebGLRenderer({alpha:true,antialias:true});
-    renderer.setPixelRatio(Math.min(devicePixelRatio,2)); renderer.setSize(210,280);
+    renderer.setPixelRatio(Math.min(devicePixelRatio,2)); renderer.setSize(340,280);
     renderer.outputColorSpace=THREE.SRGBColorSpace;
     renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap;
     renderer.setClearColor(0,0); host.replaceChildren(renderer.domElement);
-    const scene=new THREE.Scene(), camera=new THREE.PerspectiveCamera(32,210/280,.1,80);
+    const scene=new THREE.Scene(), camera=new THREE.PerspectiveCamera(32,340/280,.1,80);
     camera.position.set(0,8.8,10.5);camera.lookAt(0,0,2.15);
     scene.add(new THREE.HemisphereLight(0xf6faff,0x60728b,2.7));
     const key=new THREE.DirectionalLight(0xfffcf1,4.2);key.position.set(-5,10,4);key.castShadow=true;
@@ -49,7 +49,7 @@ if (host) {
     document.addEventListener('brayer-motion',e=>{
       const d=e.detail;distance+=d.roll/22;target=d.angle;targetPressure=d.pressure;
       // The screen contact point stays under the rubber, with the handle toward the viewer.
-      host.style.transform=`translate(${d.x-105}px,${d.y-91}px)`;wake();
+      host.style.transform=`translate(${d.x-170}px,${d.y-91}px)`;wake();
     });
     document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(frame);frame=0;}else wake();});
     host.classList.add('brayer-3d');wake();
