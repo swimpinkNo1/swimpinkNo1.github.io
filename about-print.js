@@ -8,7 +8,17 @@
     const original = plate.querySelector('.plate-content'), ink = original.cloneNode(true);
     ink.classList.add('ink-content'); ink.setAttribute('aria-hidden','true'); plate.append(ink);
     const canvas = document.createElement('canvas'), ctx = canvas.getContext('2d');
-    let last = null, pending = 0, full = false;
+    let last = null, pending = 0, full = false, travel = 0, heading = 0;
+    // Stable paper tooth: a grain map is reused for each pass, so ink builds on ridges.
+    const tooth=document.createElement('canvas');tooth.width=128;tooth.height=128;
+    const tc=tooth.getContext('2d'), pixels=tc.createImageData(128,128);
+    for(let i=0;i<pixels.data.length;i+=4){const n=Math.random();pixels.data[i+3]=n<.09?0:Math.round(90+Math.pow(n,.45)*165);}
+    tc.putImageData(pixels,0,0);
+    const stamp=document.createElement('canvas');stamp.width=126;stamp.height=12;
+    const sc=stamp.getContext('2d');
+    sc.fillStyle=sc.createPattern(tooth,'repeat');sc.fillRect(0,0,126,12);
+    sc.globalCompositeOperation='destination-in';
+    const edge=sc.createLinearGradient(0,0,126,0);edge.addColorStop(0,'transparent');edge.addColorStop(.035,'#0009');edge.addColorStop(.12,'#000');edge.addColorStop(.87,'#000');edge.addColorStop(.97,'#0009');edge.addColorStop(1,'transparent');sc.fillStyle=edge;sc.fillRect(0,0,126,12);
     function publish() {pending = 0; const mask = `url("${canvas.toDataURL()}")`; ink.style.maskImage = mask; ink.style.webkitMaskImage = mask;}
     function size() {
       // Preserve ink in normalised plate coordinates when the layout changes.
@@ -21,21 +31,38 @@
     }
     function brush(event) {
       const r=plate.getBoundingClientRect(), x=event.clientX-r.left,y=event.clientY-r.top;
-      const previous=last || {x,y};
-      ctx.strokeStyle='#000';ctx.lineWidth=54;ctx.lineCap='square';
-      ctx.beginPath();ctx.moveTo(previous.x,previous.y);ctx.lineTo(x,y);ctx.stroke();
-      ctx.fillStyle='#000';ctx.fillRect(x-28,y-12,56,24);
+      const previous=last || {x,y}, dx=x-previous.x,dy=y-previous.y;
+      const length=Math.hypot(dx,dy), pressed=event.buttons>0 || event.pointerType==='touch';
+      if(length>1){
+        // The axle stays across the direction of travel. Avoid a full flip on the return pass.
+        let next=Math.atan2(-dx,dy);
+        while(next-heading>Math.PI/2)next-=Math.PI;
+        while(next-heading<-Math.PI/2)next+=Math.PI;
+        heading=next;
+      }
+      const along=dx*(-Math.sin(heading))+dy*Math.cos(heading);
+      travel+=along;
+      // Sample by distance, never by pointer-event count: slow and fast strokes transfer evenly.
+      const steps=Math.max(1,Math.ceil(length/2.5));
+      if(length>.3 || !last || event.type==='pointerdown')for(let i=1;i<=steps;i++){
+        const px=previous.x+dx*i/steps,py=previous.y+dy*i/steps;
+        const film=.38+.12*Math.sin((travel-length+length*i/steps)/34);
+        ctx.save();ctx.translate(px,py);ctx.rotate(heading);
+        ctx.globalAlpha=(pressed?.75:.48)*film;
+        ctx.drawImage(stamp,-63,-6);ctx.restore();
+      }
       last={x,y}; if(!pending)pending=requestAnimationFrame(publish);
       if(event.pointerType!=='touch'){
         cursor.classList.add('active');
-        const lean=Math.max(-12,Math.min(12,(x-previous.x)*.3));
-        cursor.style.transform=`translate(${event.clientX-41}px,${event.clientY-20}px) rotate(${lean}deg)`;
+        if(!cursor.classList.contains('brayer-3d'))cursor.style.transform=`translate(${event.clientX-41}px,${event.clientY-20}px) rotate(${heading*180/Math.PI}deg)`;
       }
+      document.dispatchEvent(new CustomEvent('brayer-motion',{detail:{x:event.clientX,y:event.clientY,roll:along,angle:heading,pressure:pressed?1:.35}}));
       plate.dataset.inked='true';
     }
     plate.addEventListener('pointerenter',event=>{last=null;brush(event);});
     plate.addEventListener('pointermove',brush);
     plate.addEventListener('pointerdown',brush);
+    plate.addEventListener('pointerup',brush);
     plate.addEventListener('pointerleave',()=>{last=null;cursor.classList.remove('active');});
     plate.addEventListener('pointercancel',()=>{last=null;cursor.classList.remove('active');});
     new ResizeObserver(size).observe(plate);size();
