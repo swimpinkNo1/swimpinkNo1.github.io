@@ -16,6 +16,6 @@ if(!p){document.querySelector('#title').textContent='Case file unavailable';docu
    frame.src=video.src;frame.title=video.title;frame.loading='lazy';frame.allow='fullscreen';frame.allowFullscreen=true;frame.setAttribute('allowfullscreen','');
    link.href=video.src;link.target='_blank';link.rel='noopener';link.textContent='Open video in a new tab ↗';caption.append(link);figure.append(heading,frame,caption);films.append(figure);
   });gallery.after(films);
-  document.querySelector('main > .source-note').textContent='Original artwork and case descriptions from YongHong Chen’s previous portfolio. Films are embedded from Xinpianchang.';
+  document.querySelector('main > .source-note').textContent='Original artwork and case descriptions from YH’s previous portfolio. Films are embedded from Xinpianchang.';
  }
 }

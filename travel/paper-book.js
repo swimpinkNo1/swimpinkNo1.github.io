@@ -1,4 +1,4 @@
-import * as THREE from './vendor/three.module.js';
+import * as THREE from '../vendor/three/three.module.js';
 
 const W=1,H=1.5,SEGMENTS=40;
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));

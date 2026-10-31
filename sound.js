@@ -6,7 +6,7 @@ audio.addEventListener('play',()=>{room.classList.add('playing');message.textCon
 for(const event of ['pause','ended','waiting'])audio.addEventListener(event,()=>room.classList.remove('playing'));
 audio.addEventListener('playing',()=>room.classList.add('playing'));
 audio.addEventListener('timeupdate',update);
-audio.addEventListener('error',()=>{room.classList.remove('playing');message.innerHTML='The recording could not load. <a href="https://invisiblepalmistry.com/dh/ecological-echoes/">Listen on the original project page ↗</a>'});
+audio.addEventListener('error',()=>{room.classList.remove('playing');message.innerHTML='The recording could not load. <a href="ecological-echoes.html">Listen on the original project page ↗</a>'});
 function seek(time){audio.currentTime=time;audio.play().catch(()=>{message.textContent='Press play to begin listening.'});update()}
 document.querySelectorAll('[data-time]').forEach(b=>b.addEventListener('click',()=>{const time=Number(b.dataset.time);if(audio.readyState>=1)seek(time);else{pending=time;message.textContent='Loading the recording…';audio.load()}}));
 audio.addEventListener('loadedmetadata',()=>{if(pending!==null){const time=pending;pending=null;seek(time)}});
