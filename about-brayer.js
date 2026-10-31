@@ -4,12 +4,12 @@ const host = document.querySelector('.brayer-cursor');
 if (host) {
   try {
     const renderer = new THREE.WebGLRenderer({alpha:true,antialias:true});
-    renderer.setPixelRatio(Math.min(devicePixelRatio,2)); renderer.setSize(340,280);
+    renderer.setPixelRatio(Math.min(devicePixelRatio,2)); renderer.setSize(460,460);
     renderer.outputColorSpace=THREE.SRGBColorSpace;
     renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap;
     renderer.setClearColor(0,0); host.replaceChildren(renderer.domElement);
-    const scene=new THREE.Scene(), camera=new THREE.PerspectiveCamera(32,340/280,.1,80);
-    camera.position.set(0,8.8,10.5);camera.lookAt(0,0,2.15);
+    const scene=new THREE.Scene(), camera=new THREE.PerspectiveCamera(46,1,.1,80);
+    camera.position.set(0,8.8,10.5);camera.lookAt(0,0,0);
     scene.add(new THREE.HemisphereLight(0xf6faff,0x60728b,2.7));
     const key=new THREE.DirectionalLight(0xfffcf1,4.2);key.position.set(-5,10,4);key.castShadow=true;
     key.shadow.mapSize.set(1024,1024);key.shadow.camera.left=-6;key.shadow.camera.right=6;key.shadow.camera.top=7;key.shadow.camera.bottom=-7;key.shadow.normalBias=.025;key.shadow.radius=3;scene.add(key);
@@ -37,19 +37,23 @@ if (host) {
     const shoulder=mesh(new THREE.SphereGeometry(1,40,24),enamel);shoulder.scale.set(1.11,.22,.52);shoulder.position.set(0,.68,1.53);
     const end=mesh(new THREE.TorusGeometry(.13,.037,12,24),chrome);end.rotation.x=-Math.PI/2;end.position.set(0,.99,3.58);
     const plane=mesh(new THREE.PlaneGeometry(30,30),new THREE.ShadowMaterial({opacity:.3}),scene);plane.rotation.x=-Math.PI/2;plane.position.y=-.025;plane.castShadow=false;
-    let frame=0,angle=0,target=0,distance=0,lastDistance=0,pressure=0,targetPressure=0,last=0;
+    let frame=0,angle=0,target=0,distance=0,pressure=0,targetPressure=0,last=0;
     function draw(now){frame=0;const dt=Math.min((now-last)/1000||.016,.04);last=now;
       angle+=(target-angle)*Math.min(1,dt*14);pressure+=(targetPressure-pressure)*Math.min(1,dt*20);
       tool.rotation.y=-angle;tool.position.y=.04-pressure*.035;tool.rotation.x=-pressure*.025;
-      drum.rotation.x=distance/.64;lastDistance=distance;
+      drum.rotation.x=distance/.64;
       renderer.render(scene,camera);
       if(Math.abs(target-angle)>.001||Math.abs(targetPressure-pressure)>.001)frame=requestAnimationFrame(draw);
     }
     function wake(){if(!frame){last=performance.now();frame=requestAnimationFrame(draw);}}
     document.addEventListener('brayer-motion',e=>{
-      const d=e.detail;distance+=d.roll/22;target=d.angle;targetPressure=d.pressure;
+      const d=e.detail;distance+=d.roll/40;
+      const projected = Math.atan2(Math.sin(d.angle)/.643,Math.cos(d.angle));
+      // Choose the closest equivalent turn; long sessions must not accumulate full spins.
+      target=projected+Math.round((angle-projected)/(Math.PI*2))*Math.PI*2;
+      targetPressure=d.pressure;
       // The screen contact point stays under the rubber, with the handle toward the viewer.
-      host.style.transform=`translate(${d.x-170}px,${d.y-91}px)`;wake();
+      host.style.transform=`translate(${d.x-230}px,${d.y-230}px)`;wake();
     });
     document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(frame);frame=0;}else wake();});
     host.classList.add('brayer-3d');wake();
