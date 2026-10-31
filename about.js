@@ -52,12 +52,12 @@
       key.textContent = character === ' ' ? 'SPACE' : character === '⇧' ? 'SHIFT' : character === '↵' ? 'RETURN' : character;
       key.setAttribute('aria-label', character === ' ' ? 'Space' : key.textContent);
       keyMap.set(character, key);
-      key.addEventListener('click', () => { press(character); clickSound(character); });
+      key.addEventListener('click', () => { manualKey(character); });
       div.append(key);
     }
     $('#keyboard').append(div);
   });
-  let context, enabled = false;
+  let context, enabled = true;
   const voices = new Set();
   async function enableAudio() {
     if (!enabled) return;
@@ -70,6 +70,8 @@
       $('#sound').setAttribute('aria-pressed', 'false');
     }
   }
+  ['pointerdown', 'keydown'].forEach(type => document.addEventListener(type, () => { if (enabled) enableAudio(); }, {capture: true}));
+  enableAudio();
   $('#sound').addEventListener('click', async () => {
     enabled = !enabled;
     $('#sound').setAttribute('aria-pressed', String(enabled));
@@ -137,6 +139,7 @@
     if (char === '+') normalized = '0';
     if (char === '&') normalized = '7';
     if (char === '—') normalized = ',';
+    if (!keyMap.has(normalized) && Array.from(char).length === 1) normalized = ' ';
     const key = keyMap.get(normalized);
     if (!key) return;
     clearTimeout(keyTimers.get(key));
@@ -150,7 +153,45 @@
       $('#typebar').classList.add('strike');
     }
   }
-  let timer, lineIndex = 0, charIndex = 0, caret;
+  let timer, lineIndex = 0, charIndex = 0, caret, writing = false;
+  const input = document.createElement('textarea');
+  input.className = 'visitor-input'; input.setAttribute('aria-label', 'Type on the typewriter paper');
+  input.setAttribute('maxlength', '420'); input.spellcheck = false;
+  $('#biography').append(input);
+  const visitor = document.createElement('div'); visitor.className = 'visitor-words'; visitor.hidden = true;
+  strings.after(visitor);
+  function beginWriting(focus = false) {
+    if (!writing) {
+      clearTimeout(timer); writing = true; strings.hidden = true; visitor.hidden = false;
+      $('#typing-status').textContent = 'Your words. Your sheet. (Nothing is saved.)';
+      $('#progress').textContent = 'YOUR TURN / TYPE SOMETHING'; $('#skip').disabled = true;
+      document.dispatchEvent(new CustomEvent('typewriter-finish'));
+    }
+    if (focus) input.focus({preventScroll: true});
+  }
+  function drawWriting() {
+    visitor.textContent = input.value || 'Start typing…';
+    visitor.classList.toggle('empty', !input.value);
+    visitor.scrollTop = visitor.scrollHeight;
+  }
+  function manualKey(key) {
+    if (key === '⇧') {press(key); return;}
+    beginWriting();
+    const value = key === '↵' ? '\n' : key;
+    if (input.value.length + value.length <= 420) input.value += value;
+    press(key); clickSound(key); drawWriting();
+    if (key === '↵') document.dispatchEvent(new CustomEvent('typewriter-return', {detail:{line:12}}));
+  }
+  input.addEventListener('input', event => {
+    beginWriting(); drawWriting();
+    const key = event.inputType === 'insertLineBreak' ? '↵' : (event.data || ' ').slice(-1);
+    press(key); clickSound(key);
+  });
+  input.addEventListener('keydown', event => {
+    if (event.key === 'Backspace') {press(' '); clickSound(' ');}
+    if (event.key === 'Escape') input.blur();
+  });
+  $('#write').addEventListener('click', () => {beginWriting(true); drawWriting();});
   function finish() {
     clearTimeout(timer);
     lines.forEach(line => line.chars.forEach(char => char.classList.remove('untyped', 'caret')));
@@ -179,6 +220,7 @@
     timer = setTimeout(typeNext, /[.,]/.test(letter) ? 170 : 46);
   }
   function replay() {
+    writing = false; strings.hidden = false; visitor.hidden = true; input.value = ''; input.blur();
     document.dispatchEvent(new CustomEvent('typewriter-reset'));
     clearTimeout(timer); lineIndex = 0; charIndex = 0;
     lines.forEach(line => line.chars.forEach(char => char.classList.add('untyped')));
@@ -272,16 +314,20 @@
   });
   document.addEventListener('keydown', event => {
     if (event.ctrlKey || event.metaKey || event.altKey || event.repeat || event.target.closest('button,a,input,textarea,select,[role="button"]')) return;
-    if (event.key.length === 1) {press(event.key); clickSound(event.key);}
+    if (event.key.length === 1 || event.key === 'Enter' || event.key === 'Backspace') {
+      event.preventDefault(); beginWriting(true);
+      if (event.key === 'Backspace') { input.value = Array.from(input.value).slice(0,-1).join(''); drawWriting(); press(' '); clickSound(' '); }
+      else manualKey(event.key === 'Enter' ? '↵' : event.key);
+    }
   });
   document.addEventListener('visibilitychange', () => {
     clearTimeout(timer);
     if (document.hidden) { cancelAnimationFrame(frame); frame = 0; }
-    else { if (lineIndex < lines.length) typeNext(); wake(); }
+    else { if (!writing && lineIndex < lines.length) typeNext(); wake(); }
   });
   reduced.addEventListener('change', () => {
     if (reduced.matches) {
-      finish(); cancelAnimationFrame(frame); frame = 0;
+      if (!writing) finish(); cancelAnimationFrame(frame); frame = 0;
       lines.forEach(line => {line.held = null; line.modes.forEach(m => {m.q=0;m.v=0;});line.chars.forEach(c => c.style.transform='');});
     }
   });
