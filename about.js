@@ -83,7 +83,10 @@
     }
   }
   ['pointerdown', 'keydown', 'touchend'].forEach(type => document.addEventListener(type, event => {
-    if (event.target.closest('#sound')) { soundWasRunning = enabled && context?.state === 'running'; return; }
+    if (event.target.closest('#sound')) {
+      if (type !== 'touchend' || soundWasRunning === null) soundWasRunning = enabled && context?.state === 'running';
+      return;
+    }
     if (enabled) enableAudio();
   }, {capture: true}));
   enableAudio();
