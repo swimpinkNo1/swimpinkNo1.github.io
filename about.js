@@ -59,25 +59,46 @@
   });
   let context, enabled = true;
   const voices = new Set();
+  let soundWasRunning = null;
+  function syncAudioState() {
+    const running = enabled && context?.state === 'running';
+    $('#sound').setAttribute('aria-pressed', String(running));
+    $('#sound').textContent = !enabled ? '♪ Sound off' : running ? '♪ Sound on' : '♪ Start sound';
+    $('#sound').dataset.audioState = !enabled ? 'muted' : context?.state || 'waiting';
+  }
   async function enableAudio() {
-    if (!enabled) return;
+    if (!enabled) return false;
     try {
-      context ??= new (window.AudioContext || window.webkitAudioContext)();
+      if (!context || context.state === 'closed') {
+        context = new (window.AudioContext || window.webkitAudioContext)();
+        context.addEventListener('statechange', syncAudioState);
+      }
+      syncAudioState();
       if (context.state !== 'running') await context.resume();
+      syncAudioState();
+      return context.state === 'running';
     } catch {
-      enabled = false;
-      $('#sound').textContent = 'Sound unavailable';
-      $('#sound').setAttribute('aria-pressed', 'false');
+      // A blocked or interrupted context can be retried on the next gesture.
+      syncAudioState(); return false;
     }
   }
-  ['pointerdown', 'keydown'].forEach(type => document.addEventListener(type, () => { if (enabled) enableAudio(); }, {capture: true}));
+  ['pointerdown', 'keydown', 'touchend'].forEach(type => document.addEventListener(type, event => {
+    if (event.target.closest('#sound')) { soundWasRunning = enabled && context?.state === 'running'; return; }
+    if (enabled) enableAudio();
+  }, {capture: true}));
   enableAudio();
   $('#sound').addEventListener('click', async () => {
-    enabled = !enabled;
-    $('#sound').setAttribute('aria-pressed', String(enabled));
-    $('#sound').textContent = enabled ? '♪ Sound on' : '♪ Enable sound';
-    if (enabled) { await enableAudio(); pluckSound(0, .45); }
-    else { for (const voice of voices) { try {voice.stop();} catch {} } voices.clear(); }
+    // The first click on a browser-blocked context starts sound; it must not mute it.
+    const wasRunning = soundWasRunning ?? (context?.state === 'running');
+    soundWasRunning = null;
+    if (enabled && wasRunning) {
+      enabled = false;
+      for (const voice of voices) { try {voice.stop();} catch {} } voices.clear();
+      syncAudioState();
+    } else {
+      enabled = true;
+      if (await enableAudio()) pluckSound(0, .45);
+    }
   });
   function playBuffer(buffer, volume) {
     if (!enabled || context?.state !== 'running') return;
@@ -90,9 +111,15 @@
     voices.add(source);
     source.onended = () => { voices.delete(source); source.disconnect(); gain.disconnect(); };
     source.start();
+    $('#sound').dataset.playedSounds = String(Number($('#sound').dataset.playedSounds || 0) + 1);
   }
   function pluckSound(index, strength = 1) {
-    if (!enabled || context?.state !== 'running') return;
+    if (!enabled) return;
+    if (context?.state !== 'running') {
+      if (navigator.userActivation?.hasBeenActive) enableAudio().then(ready => {if (ready) pluckSound(index, strength);});
+      return;
+    }
+    $('#sound').dataset.lastSound = 'guitar';
     // Karplus–Strong: a short excitation travels around a damped delay loop.
     // These consonant pitches avoid dissonance when several lines are strummed.
     const frequency = [110, 123.47, 146.83, 164.81, 196, 220, 246.94, 293.66, 329.63, 392, 440, 493.88][index % 12];
@@ -108,7 +135,12 @@
     playBuffer(buffer, Math.min(.65, .25 + strength * .25));
   }
   function clickSound(key = '') {
-    if (!enabled || context?.state !== 'running') return;
+    if (!enabled) return;
+    if (context?.state !== 'running') {
+      if (navigator.userActivation?.hasBeenActive) enableAudio().then(ready => {if (ready) clickSound(key);});
+      return;
+    }
+    $('#sound').dataset.lastSound = 'typewriter';
     const rate = context.sampleRate;
     const returning = key === '↵', space = key === ' ';
     const duration = returning ? .22 : space ? .034 : .025;
