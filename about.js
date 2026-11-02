@@ -57,13 +57,12 @@
     }
     $('#keyboard').append(div);
   });
-  let context, enabled = true;
+  let context;
+  const enabled = true;
   const voices = new Set();
-  let soundWasRunning = null;
   function syncAudioState() {
     const running = enabled && context?.state === 'running';
-    $('#sound').setAttribute('aria-pressed', String(running));
-    $('#sound').textContent = !enabled ? '♪ Sound off' : running ? '♪ Sound on' : '♪ Start sound';
+    $('#sound').textContent = running ? 'Sound active' : 'Sound enabled';
     $('#sound').dataset.audioState = !enabled ? 'muted' : context?.state || 'waiting';
   }
   async function enableAudio() {
@@ -82,27 +81,11 @@
       syncAudioState(); return false;
     }
   }
-  ['pointerdown', 'keydown', 'touchend'].forEach(type => document.addEventListener(type, event => {
-    if (event.target.closest('#sound')) {
-      if (type !== 'touchend' || soundWasRunning === null) soundWasRunning = enabled && context?.state === 'running';
-      return;
-    }
-    if (enabled) enableAudio();
+  // Sound is always enabled. Browser-required activation is automatic on any gesture.
+  ['pointerdown', 'keydown', 'touchend'].forEach(type => document.addEventListener(type, () => {
+    enableAudio();
   }, {capture: true}));
   enableAudio();
-  $('#sound').addEventListener('click', async () => {
-    // The first click on a browser-blocked context starts sound; it must not mute it.
-    const wasRunning = soundWasRunning ?? (context?.state === 'running');
-    soundWasRunning = null;
-    if (enabled && wasRunning) {
-      enabled = false;
-      for (const voice of voices) { try {voice.stop();} catch {} } voices.clear();
-      syncAudioState();
-    } else {
-      enabled = true;
-      if (await enableAudio()) pluckSound(0, .45);
-    }
-  });
   function playBuffer(buffer, volume) {
     if (!enabled || context?.state !== 'running') return;
     // Bound simultaneous voices when rapidly brushing across several strings.
