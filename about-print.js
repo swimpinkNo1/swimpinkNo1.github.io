@@ -30,6 +30,7 @@
       last=null;publish();
     }
     function brush(event) {
+      if(event.pointerType==='touch' && !plate.classList.contains('touch-inking')) return;
       const r=plate.getBoundingClientRect(), x=event.clientX-r.left,y=event.clientY-r.top;
       const previous=last || {x,y}, dx=x-previous.x,dy=y-previous.y;
       const length=Math.hypot(dx,dy), pressed=event.buttons>0 || event.pointerType==='touch';
@@ -61,7 +62,7 @@
     }
     plate.addEventListener('pointerenter',event=>{last=null;brush(event);});
     plate.addEventListener('pointermove',brush);
-    plate.addEventListener('pointerdown',brush);
+    plate.addEventListener('pointerdown',event=>{if(event.pointerType==='touch' && plate.classList.contains('touch-inking'))plate.setPointerCapture(event.pointerId);brush(event);});
     plate.addEventListener('pointerup',brush);
     plate.addEventListener('pointerleave',()=>{last=null;cursor.classList.remove('active');});
     plate.addEventListener('pointercancel',()=>{last=null;cursor.classList.remove('active');});
@@ -72,3 +73,5 @@
   document.querySelector('#ink-reset').addEventListener('click',()=>plates.forEach(p=>p.clear()));
   window.addEventListener('blur',()=>cursor.classList.remove('active'));
 })();
+
+const touchInk=document.querySelector('#touch-ink');touchInk?.addEventListener('click',()=>{const on=touchInk.getAttribute('aria-pressed')!=='true';touchInk.setAttribute('aria-pressed',String(on));touchInk.textContent=on?'Done / Scroll the page':'Roll ink with your finger';document.querySelectorAll('.print-plate').forEach(p=>p.classList.toggle('touch-inking',on));});
