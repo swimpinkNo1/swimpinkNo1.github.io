@@ -46,3 +46,5 @@
 
 /* Overscan must not turn the fixed stage into a focus-scroll container. */
 #scene{overflow:clip}
+
+@media(max-width:599px){.country-choices>button{width:auto;flex:1;min-width:0;font-size:clamp(15px,4.5vw,22px);gap:4px}}
