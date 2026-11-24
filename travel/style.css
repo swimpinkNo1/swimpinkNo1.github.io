@@ -48,3 +48,9 @@
 #scene{overflow:clip}
 
 @media(max-width:599px){.country-choices>button{width:auto;flex:1;min-width:0;font-size:clamp(15px,4.5vw,22px);gap:4px}}
+
+.city-pin{width:20px;height:42px}
+.city-pin .physical-pin{scale:.68;transform-origin:50% 100%}
+.city-pin .pin-tag{opacity:0;pointer-events:none}
+.city-pin:hover,.city-pin:focus-visible{z-index:10}
+.city-pin:hover .pin-tag,.city-pin:focus-visible .pin-tag{opacity:1}
