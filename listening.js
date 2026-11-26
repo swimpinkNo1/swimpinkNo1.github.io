@@ -66,12 +66,14 @@ const chapters=[
 ];
 let liveKey='',lastChapter=-1;
 const focusLens={x:.5,y:.5,active:false};
-function positionLens(e){const r=canvas.getBoundingClientRect();focusLens.x=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));focusLens.y=Math.max(0,Math.min(1,(e.clientY-r.top)/r.height));focusLens.active=true}
+let lensTimer=0;
+function positionLens(e){const r=canvas.getBoundingClientRect();focusLens.x=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));focusLens.y=Math.max(0,Math.min(1,(e.clientY-r.top)/r.height));focusLens.active=true;clearTimeout(lensTimer)}
+function releaseLens(e){if(e?.pointerType==='touch'){clearTimeout(lensTimer);lensTimer=setTimeout(()=>{focusLens.active=false},1200);return}focusLens.active=false}
 canvas.addEventListener('pointermove',positionLens);
 canvas.addEventListener('pointerdown',positionLens);
-canvas.addEventListener('pointerleave',()=>focusLens.active=false);
-canvas.addEventListener('pointercancel',()=>focusLens.active=false);
-canvas.addEventListener('pointerup',e=>{if(e.pointerType==='touch')focusLens.active=false});
+canvas.addEventListener('pointerleave',releaseLens);
+canvas.addEventListener('pointercancel',()=>{clearTimeout(lensTimer);focusLens.active=false});
+canvas.addEventListener('pointerup',releaseLens);
 
 for(const [i,c] of chapters.entries()){const b=document.createElement('button');b.className='scene-card';b.setAttribute('aria-label',`Listen to ${c.title} at ${Math.floor(c.time/60)}:${String(c.time%60).padStart(2,'0')}`);b.innerHTML=`<div class="scene-thumb"><img src="assets/user-media/${c.image}.jpg" alt="" loading="lazy"></div><small>${String(i+1).padStart(2,'0')} / ${Math.floor(c.time/60)}:${String(c.time%60).padStart(2,'0')}</small><strong>${c.title}</strong><span class="scene-fill"></span>`;b.onclick=async()=>{await seek(c.time);await play();viewer.scrollIntoView({behavior:reduced?'instant':'smooth',block:'start'})};$('#scene-cards').append(b)}
 const fmt=t=>`${String(Math.floor(t/60)).padStart(2,'0')}:${String(Math.floor(t%60)).padStart(2,'0')}`;

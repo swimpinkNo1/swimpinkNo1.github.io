@@ -1,12 +1,12 @@
-import {createMessageDeck} from './mirror-messages.js?v=1';
-import {blowingPose,createWandGate,createBreathGate} from './mirror-gestures.js?v=wand2';
+import {createMessageDeck} from './mirror-messages.js?v=affirm-20261126';
+import {blowingPose,createWandGate,createBreathGate} from './mirror-gestures.js?v=wand3';
 const $=s=>document.querySelector(s),stage=$('#mirror-stage'),canvas=$('#mirror-canvas'),ctx=canvas.getContext('2d'),video=$('#camera-feed'),reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const make=()=>{const c=document.createElement('canvas');return[c,c.getContext('2d')]};
 const [fog,fogctx]=make(),[frost,frostctx]=make(),[heat,heatctx]=make(),[message,msgctx]=make(),[writing,writingctx]=make(),[freshWriting,freshctx]=make(),[shade,shadectx]=make(),[condensation,condctx]=make();
 let W=900,H=550,torch=true,breathing=false,breathUntil=0,interacted=false,cameraStream=null,audioStream=null,audioContext=null,analyser=null,micFloor=.012,face=null,hand=null,sensing=false,tracking=false,lastInference=0,handPoint=null,lastPointer=null,lastFrame=0,phase=0,raf;
 let breathPoint=null,wandTarget=null,wandLastSeen=0,lastWandPoint=null,wandTrail=[],handFrames=0,lightMemory=null,lightStrength=0;
 const wandGate=createWandGate(),breathGate=createBreathGate(),nextMessage=createMessageDeck();
-let currentMessage=nextMessage(),lastGlassActivity=performance.now(),mistStart=null;
+let currentMessage=nextMessage(),lastGlassActivity=performance.now(),mistStart=null,faceSeenAt=-Infinity,glassContact=null,coverHold=0,coverNote='';
 let mirrorMode="welcome";
 let pointer={x:innerWidth/2,y:innerHeight/2,inside:false,down:false};
 const letters=[...document.querySelectorAll('.secret-letter')],records=[...document.querySelectorAll('.archive-sheet')];
@@ -37,8 +37,12 @@ function stopBreath(){breathing=false;$('#breath-button').classList.remove('brea
 $('#breath-button').addEventListener('pointerdown',e=>{e.preventDefault();e.currentTarget.setPointerCapture(e.pointerId);startBreath()});$('#breath-button').addEventListener('pointerup',stopBreath);$('#breath-button').addEventListener('pointercancel',stopBreath);
 window.addEventListener('keydown',e=>{if(/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;if(e.key.toLowerCase()==='l'&&!e.repeat)setTorch(!torch);if(e.key.toLowerCase()==='b'&&!e.repeat){e.preventDefault();startBreath()}if(e.key==='Escape'){setTorch(false);stopBreath()}});window.addEventListener('keyup',e=>{if(e.key.toLowerCase()==='b')stopBreath()});window.addEventListener('blur',()=>{stopBreath();lastPointer=null});
 $('#mirror-reset').onclick=()=>{fogctx.clearRect(0,0,W,H);chooseMessage();touchGlass();$('#mirror-state').textContent='Another secret is waiting. Breathe onto the glass to begin.'};
-window.addEventListener('pointermove',e=>{const next={x:e.clientX,y:e.clientY,inside:true,down:e.buttons>0};pointer=next;positionCursor(next);if(manualMirror()&&interacted&&(e.pointerType!=='touch'||e.buttons))updateSurface(next,lastPointer);lastPointer=next;explorePage(next)}, {passive:true});
-stage.addEventListener('pointerdown',e=>{if(!manualMirror()||e.target.closest('button,a,input'))return;pointer={x:e.clientX,y:e.clientY,inside:true,down:true};stage.setPointerCapture(e.pointerId);lastPointer=pointer;updateSurface(pointer,null)});stage.addEventListener('pointerup',()=>{pointer.down=false;lastPointer=null});
+function endGlassContact(e){if(!glassContact||(e&&e.pointerId!==glassContact.id))return;glassContact=null;pointer.down=false;lastPointer=null}
+function moveGlassContact(e){if(!glassContact||e.pointerId!==glassContact.id)return;const next={x:e.clientX,y:e.clientY,id:e.pointerId};updateSurface(next,glassContact,!!cameraStream);glassContact=next;pointer={x:next.x,y:next.y,inside:true,down:true};positionCursor(pointer);lastPointer=pointer;explorePage(pointer)}
+stage.addEventListener('pointerdown',e=>{if(mirrorMode==='welcome'||e.button>0||e.target.closest('button,a,input,summary,label'))return;glassContact={x:e.clientX,y:e.clientY,id:e.pointerId};try{stage.setPointerCapture(e.pointerId)}catch{}pointer={x:e.clientX,y:e.clientY,inside:true,down:true};lastPointer=null;updateSurface(pointer,null,!!cameraStream);explorePage(pointer)});
+stage.addEventListener('pointermove',moveGlassContact);stage.addEventListener('pointerup',endGlassContact);stage.addEventListener('pointercancel',endGlassContact);
+window.addEventListener('pointerdown',e=>{if(e.target.closest?.('#mirror-stage'))return;const next={x:e.clientX,y:e.clientY,inside:true,down:true};pointer=next;positionCursor(next);explorePage(next)},{passive:true});
+window.addEventListener('pointermove',e=>{const next={x:e.clientX,y:e.clientY,inside:true,down:e.buttons>0};pointer=next;positionCursor(next);if(!glassContact&&manualMirror()&&interacted&&(e.pointerType!=='touch'||e.buttons))updateSurface(next,lastPointer);lastPointer=next;explorePage(next)},{passive:true});
 function explorePage(p){const overMirror=mirrorHit(p);if(!overMirror&&!document.body.classList.contains('outside-mirror')&&!torch)setTorch(true);document.body.classList.toggle('outside-mirror',!overMirror);document.body.classList.toggle('in-mirror',overMirror);document.querySelectorAll('.render-study').forEach(el=>{const r=el.getBoundingClientRect();el.style.setProperty('--rx',(p.x-r.left)+'px');el.style.setProperty('--ry',(p.y-r.top)+'px')});document.body.classList.toggle('reading-lit',torch&&!overMirror);document.body.style.setProperty('--page-light-x',p.x+'px');document.body.style.setProperty('--page-light-y',p.y+'px');letters.forEach(l=>{const r=l.getBoundingClientRect(),near=torch&&p.x>r.left&&p.x<r.right&&p.y>r.top&&p.y<r.bottom;l.classList.toggle('near',near);if(near){const copy=l.querySelector('.letter-light').getBoundingClientRect();l.style.setProperty('--lx',`${p.x-copy.left}px`);l.style.setProperty('--ly',`${p.y-copy.top}px`)}});if(torch)records.forEach(s=>revealArchive(s,p))}
 window.addEventListener('scroll',()=>{if(torch)explorePage(pointer)},{passive:true});
 letters.forEach(l=>{const open=()=>l.classList.toggle('open');l.onclick=open;l.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}}});$('#reveal-letter').onclick=()=>letters.forEach(l=>l.classList.add('open'));
@@ -84,23 +88,38 @@ function animate(t){raf=requestAnimationFrame(animate);if(document.hidden||t-las
  if(misting){lastGlassActivity=t;if(mistStart===null)mistStart=t;const spread=Math.min(1,(t-mistStart)/1600),radius=W*.28+Math.max(W,H)*.5*spread;const x=breathPoint?.x??W*.5,y=breathPoint?.y??H*.58;strokeMask(fogctx,null,{x:x+Math.sin(t*.001)*W*.03,y},radius,false,.085);}
  fogctx.save();fogctx.globalCompositeOperation='destination-out';fogctx.fillStyle=`rgba(0,0,0,${dt*.000018})`;fogctx.fillRect(0,0,W,H);fogctx.restore();
  heatctx.save();heatctx.globalCompositeOperation='destination-out';heatctx.fillStyle=`rgba(0,0,0,${dt*.00011})`;heatctx.fillRect(0,0,W,H);heatctx.restore();
- if(cameraStream&&wandTarget&&t-wandLastSeen<440){
+ const touchPoint=glassContact&&mirrorHit(glassContact)?glassContact:null;
+ const cameraWand=!!(cameraStream&&wandTarget&&t-wandLastSeen<520);
+ if(touchPoint||cameraWand)coverHold=t+700;
+ if(touchPoint){
+  handPoint={x:touchPoint.x,y:touchPoint.y};
+  wandTrail.push({...toMirror(handPoint),time:t});
+  document.body.classList.add('finger-wand');
+ }else if(cameraWand){
+  // A finger that reappears far from the last touch starts a new stroke, not a slash across the glass.
+  if(handPoint&&Math.hypot(handPoint.x-wandTarget.x,handPoint.y-wandTarget.y)>stage.getBoundingClientRect().width*.22){handPoint=null;lastWandPoint=null;wandTrail=[]}
   handPoint=handPoint?{x:handPoint.x+(wandTarget.x-handPoint.x)*.42,y:handPoint.y+(wandTarget.y-handPoint.y)*.42}:{...wandTarget};
   updateSurface(handPoint,lastWandPoint,true);lastWandPoint={...handPoint};wandTrail.push({...toMirror(handPoint),time:t});
   document.body.classList.add('finger-wand');
- }else{handPoint=null;lastWandPoint=null;document.body.classList.remove('finger-wand');if(manualMirror()&&interacted&&torch&&mirrorHit(pointer)){updateSurface(pointer,pointer);wandTrail.push({...toMirror(pointer),time:t})}}
- // Undisturbed glass gradually condenses over the revealed strokes.
- if(interacted&&!misting&&t-lastGlassActivity>3000){
-  const amount=1-Math.exp(-dt/1100);
-  addCondensation(amount*.7);
-  for(const layer of [writingctx,heatctx]){
-   layer.save();layer.globalCompositeOperation='destination-out';
-   layer.fillStyle=`rgba(0,0,0,${amount})`;layer.fillRect(0,0,W,H);layer.restore();
-  }
- }
+ }else{handPoint=null;lastWandPoint=null;document.body.classList.remove('finger-wand');if(manualMirror()&&!glassContact&&interacted&&torch&&mirrorHit(pointer)){updateSurface(pointer,pointer);wandTrail.push({...toMirror(pointer),time:t})}}
+ // Face present, finger quiet: moisture returns and slowly closes over the writing.
+ // The reveal mask has to fade on its own. Redrawing the letters later must not paint them back to full strength.
+ const faceLive=!!(cameraStream&&sensing&&t-faceSeenAt<900);
+ const fingerDown=!!glassContact,wandLive=!!(touchPoint||cameraWand);
+ if(faceLive&&!fingerDown&&!wandLive&&!misting&&t>coverHold){
+  const amount=1-Math.exp(-dt/3200);
+  addCondensation(amount);
+  heatctx.save();heatctx.globalCompositeOperation='destination-out';heatctx.fillStyle=`rgba(0,0,0,${amount})`;heatctx.fillRect(0,0,W,H);heatctx.restore();
+  if(coverNote!=='face'){coverNote='face';$('#mirror-state').textContent='The glass is clouding again. A fingertip can find the words.'}
+ }else if(!faceLive&&interacted&&!misting&&!fingerDown&&!wandLive&&t-lastGlassActivity>2800){
+  const amount=1-Math.exp(-dt/3200);
+  addCondensation(amount*.75);
+  heatctx.save();heatctx.globalCompositeOperation='destination-out';heatctx.fillStyle=`rgba(0,0,0,${amount})`;heatctx.fillRect(0,0,W,H);heatctx.restore();
+  if(coverNote!=='idle'){coverNote='idle';$('#mirror-state').textContent='The glass is clouding again. A fingertip can find the words.'}
+ }else if(wandLive||fingerDown||misting)coverNote='';
  // The letters are holes in condensation, not coloured text placed over the image.
  freshctx.save();freshctx.globalCompositeOperation='source-over';freshctx.clearRect(0,0,W,H);freshctx.drawImage(message,0,0);freshctx.globalCompositeOperation='destination-in';freshctx.drawImage(heat,0,0);freshctx.restore();
- writingctx.drawImage(freshWriting,0,0);
+ writingctx.clearRect(0,0,W,H);writingctx.drawImage(freshWriting,0,0);
  frostctx.save();frostctx.globalCompositeOperation='source-over';frostctx.clearRect(0,0,W,H);frostctx.filter='blur(15px)';frostctx.drawImage(canvas,0,0);frostctx.filter='none';frostctx.fillStyle='rgba(235,241,235,.70)';frostctx.fillRect(0,0,W,H);
  // Cached irregular moisture and sparse slow rivulets remain attached to the glass.
  frostctx.drawImage(condensation,0,0);drawRivulets(t);
@@ -108,7 +127,10 @@ function animate(t){raf=requestAnimationFrame(animate);if(document.hidden||t-las
  // A thin wet rim borders the transparent finger strokes, without colouring the letters.
  frostctx.save();frostctx.globalCompositeOperation='source-atop';frostctx.globalAlpha=.16;frostctx.filter='blur(2px)';frostctx.drawImage(writing,0,0);frostctx.restore();
  frostctx.globalCompositeOperation='destination-out';frostctx.drawImage(writing,0,0);frostctx.restore();ctx.drawImage(frost,0,0);
- const lightPoint=cameraStream&&sensing?handPoint:interacted&&torch&&mirrorHit(pointer)?pointer:null;document.body.classList.toggle('finger-wand',Boolean(lightPoint));drawAtmosphere(lightPoint,dt);drawWand(t,lightPoint);
+ let lightPoint=null;
+ if(cameraStream&&sensing)lightPoint=touchPoint||handPoint;
+ else if(interacted&&torch){const p=touchPoint||pointer;if(mirrorHit(p))lightPoint=p}
+ document.body.classList.toggle('finger-wand',Boolean(lightPoint));drawAtmosphere(lightPoint,dt);drawWand(t,lightPoint);
  if(torch){const flicker=reduced?1:1+Math.sin(t*.013)*.03;$('#light-cursor svg').style.scale=String(flicker)}
  if(cameraStream&&sensing&&t-lastInference>75){lastInference=t;infer(t)}
 }
@@ -118,12 +140,13 @@ async function setupSensing(){
  const currentStream=cameraStream;trackingAbort?.abort();const controller=new AbortController();trackingAbort=controller;
  stage.dataset.trackingState='loading';
  try{
- const {loadMirrorTracking}=await import('./mirror-tracking.js?v=tracking26');
+ const {loadMirrorTracking}=await import('./mirror-tracking.js?v=tracking27');
  const detectors=await loadMirrorTracking({signal:controller.signal,onProgress:text=>{if(cameraStream===currentStream)$('#camera-status').textContent=text}});
  if(cameraStream!==currentStream||!cameraStream||controller.signal.aborted){detectors.face.close();detectors.hand.close();return}
  face=detectors.face;hand=detectors.hand;stopBreath();sensing=true;$('#breath-button').disabled=true;stage.dataset.trackingState='ready';
- $('#sensing-retry').hidden=true;$('#mouth-status').textContent='The mirror sees you · try a gentle blow';$('#hand-status').textContent='Raise your index finger · it is your wand';
- $('#camera-status').textContent='Try blowing gently towards the camera. When the glass clouds, raise your index finger — someone left you a message.';
+ $('#sensing-retry').hidden=true; const coarse=matchMedia('(pointer: coarse)').matches;
+ $('#mouth-status').textContent='The mirror sees you · try a gentle blow';$('#hand-status').textContent=coarse?'Raise your index finger · or touch the glass':'Raise your index finger · it is your wand';
+ $('#camera-status').textContent=coarse?'Try a gentle blow. If the camera loses your hand, rest a finger on the glass — it can be the wand.':'Try blowing gently towards the camera. When the glass clouds, raise your index finger — someone left you a message.';
  }catch(error){if(controller.signal.aborted)return;controller.abort();stage.dataset.trackingState='error';$('#mouth-status').textContent='Mouth tracking unavailable';$('#hand-status').textContent='Fingertip tracking unavailable';throw error}
 }
 
@@ -161,7 +184,7 @@ function drawWand(t,lightPoint){
  ctx.restore();
 }
 function infer(t){if(!face||!hand||video.readyState<2)return;try{
- const f=face.detectForVideo(video,t),h=hand.detectForVideo(video,t),landmarks=f.faceLandmarks?.[0];
+ const f=face.detectForVideo(video,t),h=hand.detectForVideo(video,t),landmarks=f.faceLandmarks?.[0];if(landmarks)faceSeenAt=t;
  $('#mouth-status').textContent=landmarks?'The mirror sees you · try a gentle blow':'Come closer · let the mirror see your face';const mouth=landmarks?.[13];if(mouth)breathPoint=mapCameraPoint(mouth);
  const scores=Object.fromEntries((f.faceBlendshapes?.[0]?.categories||[]).map(v=>[v.categoryName,v.score]));
  let pose=blowingPose(landmarks,scores);
@@ -169,7 +192,7 @@ function infer(t){if(!face||!hand||video.readyState<2)return;try{
  const isBlowing=breathGate.update(Boolean(landmarks),pose,t);if(isBlowing){breathUntil=t+120;touchGlass();$('#mirror-state').textContent='The mirror heard your breath. Raise your index finger to uncover the message.'}else breathUntil=0;
  $('#mouth-status').textContent=isBlowing?'The glass is clouding · a message awaits':pose?'A little longer… the glass is clouding':landmarks?'The mirror sees you · try a gentle blow':'Come closer · let the mirror see your face';
  const points=h.landmarks?.[0];
- const wand=wandGate.update(points,t);$('#hand-status').textContent=wand.tracked?'Your fingertip holds the light · uncover the words':points?'Almost there · point with your index finger':'Raise your index finger · it is your wand';
+ const wand=wandGate.update(points,t);const touchHelp=matchMedia('(pointer: coarse)').matches?' · or touch the glass':'';$('#hand-status').textContent=wand.tracked?'Your fingertip holds the light · uncover the words':points?'Almost there · point with your index finger':'Raise your index finger · it is your wand'+touchHelp;
  if(wand.tracked){
   const m=mapCameraPoint(points[8]),r=stage.getBoundingClientRect();
   const next={x:r.left+m.x/W*r.width,y:r.top+m.y/H*r.height};
@@ -185,7 +208,7 @@ function stopCamera(){
  for(const layer of [fogctx,heatctx,writingctx,freshctx,frostctx])layer.clearRect(0,0,W,H);
  lightMemory=null;lightStrength=0;
  $('#mirror-state').textContent='Someone has been here before you.';
- mirrorMode='welcome';interacted=false;stage.classList.remove('interacted');$('#gesture-status').hidden=true;$('#sensing-retry').hidden=true;wandGate.reset();breathGate.reset();breathUntil=0;breathPoint=null;wandTarget=null;handPoint=null;lastWandPoint=null;wandTrail=[];handFrames=0;document.body.classList.remove('finger-wand');$('#breath-button').disabled=false;cameraStream?.getTracks().forEach(t=>t.stop());cameraStream=null;video.srcObject=null;sensing=false;handPoint=null;face?.close();hand?.close();face=null;hand=null;stopMicrophone();$('#camera-toggle').textContent='Use my camera ↗';$('#mirror-mode').textContent='CAMERA EXPERIENCE / READY TO START';$('#camera-status').textContent='Camera off. Pointer and touch remain available.'}
+ mirrorMode='welcome';interacted=false;stage.classList.remove('interacted');faceSeenAt=-Infinity;glassContact=null;coverHold=0;coverNote='';$('#gesture-status').hidden=true;$('#sensing-retry').hidden=true;wandGate.reset();breathGate.reset();breathUntil=0;breathPoint=null;wandTarget=null;handPoint=null;lastWandPoint=null;wandTrail=[];handFrames=0;document.body.classList.remove('finger-wand');$('#breath-button').disabled=false;cameraStream?.getTracks().forEach(t=>t.stop());cameraStream=null;video.srcObject=null;sensing=false;handPoint=null;face?.close();hand?.close();face=null;hand=null;stopMicrophone();$('#camera-toggle').textContent='Use my camera ↗';$('#mirror-mode').textContent='CAMERA EXPERIENCE / READY TO START';$('#camera-status').textContent='Camera off. Pointer and touch remain available.'}
 $('#enter-camera').onclick=()=>$('#camera-toggle').click();$('#enter-pointer').onclick=()=>{mirrorMode='pointer';$('#mirror-mode').textContent='TOUCH / POINTER · NO CAMERA';touchGlass();$('#camera-status').textContent='Hold Breathe to cloud the glass. Then drag your finger or move your mouse to uncover the message.'};
 $('#camera-toggle').onclick=async()=>{if(cameraStream){stopCamera();return}const b=$('#camera-toggle');b.disabled=true;b.textContent='Opening the mirror…';try{if(!navigator.mediaDevices?.getUserMedia)throw Error('Camera access needs HTTPS or localhost.');cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user',width:{ideal:640},height:{ideal:480}},audio:false});stopBreath();wandGate.reset();breathUntil=0;breathGate.reset();fogctx.clearRect(0,0,W,H);chooseMessage();$('#breath-button').disabled=false;video.srcObject=cameraStream;await video.play();mirrorMode='camera';touchGlass();$('#gesture-status').hidden=false;$('#mirror-mode').textContent='LIVE CAMERA MIRROR';b.textContent='Turn camera off';b.disabled=false;$('#camera-status').textContent='The mirror is waking. Wait a moment…';try{await setupSensing()}catch(e){console.error('Gesture models unavailable',e);$('#sensing-retry').hidden=false;$('#camera-status').textContent='Reflection ready. Use Breathe and drag to reveal the words, or retry gesture tracking.'}}catch(e){$('#camera-status').textContent=e.name==='NotAllowedError'?'Camera access was not granted. You can still use the pointer study.':'Camera unavailable. Pointer and touch still work.';b.textContent='Use my camera ↗';cameraStream?.getTracks().forEach(t=>t.stop());cameraStream=null;$('#breath-button').disabled=false}finally{b.disabled=false}};
 function stopMicrophone(){audioStream?.getTracks().forEach(t=>t.stop());audioStream=null;audioContext?.close();audioContext=null;analyser=null;$('#breath-audio').checked=false}

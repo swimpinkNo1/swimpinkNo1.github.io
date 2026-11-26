@@ -101,8 +101,10 @@ const boardRoot=new T.Group();
 for(const child of [...scene.children])if(child.isMesh||child.isGroup)boardRoot.add(child);
 scene.add(boardRoot);
 let turnTarget=0;
-document.addEventListener('pointermove',e=>{if(e.pointerType!=='touch')turnTarget=(e.clientX/innerWidth*2-1)*.075;});
-document.documentElement.addEventListener('pointerleave',()=>turnTarget=0);
+document.addEventListener('pointermove',e=>{if(drag)return;turnTarget=(e.clientX/innerWidth*2-1)*(e.pointerType==='touch'?.05:.075);});
+document.addEventListener('pointerup',e=>{if(e.pointerType==='touch')turnTarget=0});
+document.addEventListener('pointercancel',e=>{if(e.pointerType==='touch')turnTarget=0});
+document.documentElement.addEventListener('pointerleave',e=>{if(e.pointerType!=='touch')turnTarget=0});
 const labels=projects.map((p,i)=>{const el=document.createElement('span');el.className='project-caption';el.textContent=section==='commercial'&&p[0].includes('/')?p[0].split('/').pop().trim():p[0];el.setAttribute('aria-hidden','true');stage.append(el);return el;});
 function projectPoint(card,x,y,z=.075){return card.localToWorld(paperPoint(card,x,y,z)).project(camera);}
 function positionLabels(){
