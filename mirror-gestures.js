@@ -13,14 +13,21 @@ export function indexPointing(points,retaining=false){
  const joints=[points[5],points[6],points[7],points[8]];
  if(joints.some(p=>!p||!Number.isFinite(p.x)||!Number.isFinite(p.y)))return false;
  // Depth matters when the finger points towards the camera or turns sideways.
+ // A noisy depth channel must not hide a finger that is straight on the glass.
  const delta=(a,b)=>[a.x-b.x,a.y-b.y,(a.z??0)-(b.z??0)];
- const length=v=>Math.hypot(...v),dist=(a,b)=>length(delta(a,b));
- const [mcp,pip,dip,tip]=joints,a=delta(mcp,pip),b=delta(tip,pip);
- const cosine=a.reduce((sum,v,i)=>sum+v*b[i],0)/Math.max(length(a)*length(b),.000001);
- const chain=dist(mcp,pip)+dist(pip,dip)+dist(dip,tip);
- const straightness=dist(mcp,tip)/Math.max(chain,.000001);
- // A relaxed index is sufficient. Thumb and other fingers do not gate the light.
- return chain>.015&&cosine<(retaining?-.20:-.40)&&straightness>(retaining?.70:.78)&&dist(tip,mcp)>dist(dip,mcp)*(retaining?.93:1.01);
+ const delta2=(a,b)=>[a.x-b.x,a.y-b.y];
+ const length=v=>Math.hypot(...v),dist=(a,b)=>length(delta(a,b)),dist2=(a,b)=>length(delta2(a,b));
+ const [mcp,pip,dip,tip]=joints;
+ const pose=(cosineLimit,straightLimit,reach,chainOf,span)=>{
+  const a=span(mcp,pip),b=span(tip,pip);
+  const cosine=a.reduce((sum,v,i)=>sum+v*b[i],0)/Math.max(length(a)*length(b),.000001);
+  const chain=chainOf(mcp,pip)+chainOf(pip,dip)+chainOf(dip,tip);
+  const straightness=chainOf(mcp,tip)/Math.max(chain,.000001);
+  return chain>.015&&cosine<cosineLimit&&straightness>straightLimit&&chainOf(tip,mcp)>chainOf(dip,mcp)*reach;
+ };
+ const spatial=pose(retaining?-.15:-.30,retaining?.62:.72,retaining?.90:.98,dist,delta);
+ const flat=pose(retaining?-.12:-.25,retaining?.64:.74,retaining?.90:.97,dist2,delta2);
+ return spatial||flat;
 }
 export function createWandGate(){
  let active=false,lastSeen=-Infinity;

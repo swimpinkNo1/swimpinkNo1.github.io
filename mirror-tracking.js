@@ -19,7 +19,7 @@ export async function loadMirrorTracking({onProgress=()=>{},signal}={}){
  onProgress('Starting mouth tracking…');
  face=await deadline(FaceLandmarker.createFromOptions(resolver,{baseOptions:{modelAssetBuffer:faceBytes},runningMode:'VIDEO',numFaces:1,outputFaceBlendshapes:true}),30000,signal,m=>m.close());
  onProgress('Starting fingertip tracking…');
- hand=await deadline(HandLandmarker.createFromOptions(resolver,{baseOptions:{modelAssetBuffer:handBytes},runningMode:'VIDEO',numHands:1,minHandDetectionConfidence:.4,minHandPresenceConfidence:.4,minTrackingConfidence:.4}),30000,signal,m=>m.close());
+ hand=await deadline(HandLandmarker.createFromOptions(resolver,{baseOptions:{modelAssetBuffer:handBytes},runningMode:'VIDEO',numHands:1,minHandDetectionConfidence:.35,minHandPresenceConfidence:.35,minTrackingConfidence:.35}),30000,signal,m=>m.close());
  return {face,hand};
  }catch(error){face?.close();hand?.close();throw error}
 }

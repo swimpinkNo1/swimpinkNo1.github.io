@@ -16,3 +16,4 @@
 #literary-reader .reader-passage-bar{padding-top:0;padding-bottom:15px}
 
 .project-film-embed{display:block;width:100%;aspect-ratio:16/9;border:0;background:#dce3e5}
+@media(max-width:700px){.exhibition-foot{align-items:center}.exhibition-foot>a{min-height:44px;display:inline-flex;align-items:center;padding:8px 0;font-size:12px}.exhibition-foot>span{max-width:46%;line-height:1.5}}

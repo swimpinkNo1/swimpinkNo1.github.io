@@ -24,3 +24,22 @@ body.lit:not(.outside-mirror) .mirror-stage,body.lit:not(.outside-mirror) #mirro
 body:not(.outside-mirror) #light-cursor,body:not(.outside-mirror) .torch-dock{visibility:hidden;opacity:0}
 body.outside-mirror.lit #light-cursor{visibility:visible;opacity:1}
 body.outside-mirror.lit,body.outside-mirror.lit *{cursor:none}
+/* On a phone the glass stays full-bleed. The controls step down onto the paper so they do not cover each other or the handwriting. */
+@media(max-width:700px){
+ .mirror-room{display:grid;grid-template-rows:minmax(280px,1fr) auto auto auto auto;height:100svh;min-height:100svh;margin-bottom:0}
+ .mirror-surround{min-height:0}
+ .mirror-stage{height:100%;min-height:0}
+ .mirror-controls,.camera-note,.sensing-details,.mirror-scroll{position:static;left:auto;right:auto;bottom:auto;top:auto;max-width:none;width:auto;transform:none}
+ .mirror-controls{margin:0 5%;padding:8px 0 0;border-top:1px solid #174aaf25;gap:0 14px}
+ .mirror-controls button{min-height:44px;padding:10px 0}
+ .mirror-controls #camera-status{flex:1 1 100%;margin:0;max-width:none}
+ .camera-note{margin:4px 5% 0;font-size:11px;line-height:1.45}
+ .sensing-details{margin:0 5%;font-size:12px}
+ .sensing-details summary{min-height:44px;display:inline-flex;align-items:center}
+ .sensing-details[open]{position:absolute;left:5%;right:5%;bottom:12px;max-width:none}
+ .mirror-scroll{margin:0 auto 8px;padding:8px 12px;min-height:44px;display:inline-flex;align-items:center;font-size:9px}
+ .mirror-invitation button{min-height:44px}
+ .mirror-invitation span{font-size:9px;line-height:1.6;letter-spacing:.4px}
+ .mirror-invitation #enter-camera,.mirror-invitation #enter-pointer{display:inline-flex;align-items:center;justify-content:center}
+ #gesture-status{top:72px;left:16px;right:16px}
+}
